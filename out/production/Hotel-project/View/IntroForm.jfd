@@ -1,0 +1,27 @@
+JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.8" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, par t {comp button_login:::::x, comp button_Reservation:::p:401:p}, space :::x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp button_login:::p:101:p, space u:::p, comp button_Reservation:::p:107:p, space :::x}}"
+		} ) {
+			name: "this"
+			"title": "Welcome"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button_login"
+				"text": "Login  (Managers & Emplooyes)"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_loginActionPerformed", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button_Reservation"
+				"text": "Reservation"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_ReservationActionPerformed", false ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 415, 255 )
+		} )
+	}
+}
