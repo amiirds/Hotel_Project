@@ -4,11 +4,9 @@
 
 package View;
 
-import javax.swing.plaf.*;
-
 import Model.Entity.Reserve_Rooms_Entity;
 import Model.Repository.Reserve_Rooms_Repository;
-import Model.Service.Employee_Service;
+import Model.Repository.Rooms_Repository;
 import Model.Service.Reserve_Rooms_Service;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
@@ -21,7 +19,6 @@ import java.awt.*;
 public class ReservationForm extends JFrame {
     public ReservationForm() throws Exception {
         Reserve_Rooms_Repository reserve_rooms_repository;
-        //
         initComponents();
         reserve_rooms_repository = new Reserve_Rooms_Repository();
     }
@@ -29,7 +26,7 @@ public class ReservationForm extends JFrame {
     private void buttonsubmitActionPerformed() {
         try {
             Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
-            reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex());
+            reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex()+1);
             reserve_rooms_entity.setFullname(textFieldname.getText());
             reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
             reserve_rooms_entity.setDate_of_reserve(textField_dataofreserv.getText());
@@ -50,7 +47,7 @@ public class ReservationForm extends JFrame {
     private void button_editActionPerformed() {
         try {
             Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
-            reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex());
+            reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex()+1);
             reserve_rooms_entity.setFullname(textFieldname.getText());
             reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
             reserve_rooms_entity.setDate_of_reserve(textField_dataofreserv.getText());
@@ -84,10 +81,12 @@ public class ReservationForm extends JFrame {
             }
         }
     }
-    Integer[] room_number = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100};
-    private void initComponents() {
+    Rooms_Repository roomsRepository = new Rooms_Repository();
+    Object[] number = roomsRepository.select().toArray();
+    private void initComponents() throws Exception {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
+
         panel2 = new JPanel();
         label1 = new JLabel();
         panel1 = new JPanel();
@@ -104,7 +103,7 @@ public class ReservationForm extends JFrame {
         label6 = new JLabel();
         textField_timeofreserv = new JTextField();
         label9 = new JLabel();
-        comboBox_roomnumber = new JComboBox(room_number);
+        comboBox_roomnumber = new JComboBox(number);
         label8 = new JLabel();
         textField_firstpayment = new JTextField();
         buttonsubmit = new JButton();
@@ -127,11 +126,13 @@ public class ReservationForm extends JFrame {
         //======== panel2 ========
         {
             panel2.setBackground(new Color(153, 0, 0));
-            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-            , 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-            , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-            panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-            ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
+            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing
+            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
+            Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
+            ) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
+            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName (
+            ) )) throw new RuntimeException( ); }} );
             panel2.setLayout(new MigLayout(
                 "hidemode 3",
                 // columns
@@ -297,8 +298,7 @@ public class ReservationForm extends JFrame {
                 try {
                     button_deleteActionPerformed();
                 } catch (Exception exception) {
-                    JOptionPane.showMessageDialog(null, "Failed to Delete ", "Error", 2);
-
+                    exception.printStackTrace();
                 }
             });
             panel1.add(button_delete, "cell 2 9 3 1");

@@ -3,9 +3,8 @@ package Model.Repository;
 
 import Model.Entity.Rooms_Entity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Rooms_Repository implements AutoCloseable {
 
@@ -50,6 +49,22 @@ public class Rooms_Repository implements AutoCloseable {
         preparedStatement.setLong(1,rooms_entity.getRoom_number());
         preparedStatement.executeUpdate();
     }
+
+    public ArrayList <Integer> select() throws SQLException {
+        ArrayList <Integer> listId = new ArrayList<>();
+        preparedStatement = connection.prepareStatement("select * from rooms");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            int id = 0;
+            String status = resultSet.getString("status");
+            if (status.equals("No")) {
+                id = resultSet.getInt("Room_number");
+                listId.add(id);
+            }
+        }
+        return listId;
+    }
+
     public void commit() throws Exception {
         connection.commit ();
     }

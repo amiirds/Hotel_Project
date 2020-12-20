@@ -35,6 +35,11 @@ public class MenuForm extends JFrame {
         reservationForm.setVisible(true);
     }
 
+    private void button_incomeActionPerformed() {
+        Hotel_menu hotel_menu = new Hotel_menu();
+        hotel_menu.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
@@ -73,6 +78,7 @@ public class MenuForm extends JFrame {
 
         //---- button_income ----
         button_income.setText("Hotel Income");
+        button_income.addActionListener(e -> button_incomeActionPerformed());
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);

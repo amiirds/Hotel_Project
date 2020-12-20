@@ -51,7 +51,7 @@ public class LoginForm extends JFrame {
                 menuForm.setVisible(true);
             }
             if (exist == false) {
-                JOptionPane.showMessageDialog(null,"username or password doesn't exist","ERROR",2);
+                JOptionPane.showMessageDialog(null,"username or password doesn't exist or wrong","ERROR",2);
 
             }
         }

@@ -2,7 +2,6 @@ package Model.Repository;
 
 
 import Model.Entity.Passengers_Entity;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +72,30 @@ public class Passengers_Repo implements AutoCloseable {
                 sum += resultSet.getLong("total_Payment");
         }
         return sum;
+    }
+
+    public Long first_payment() throws SQLException {
+        preparedStatement = connection.prepareStatement("select * from passengers");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        long sum = 0;
+        while (resultSet.next()){
+            sum += resultSet.getLong("First_Payment");
+        }
+        return sum;
+    }
+
+    public List<Passengers_Entity> list() throws SQLException {
+        List <Passengers_Entity> passengers_entities = new ArrayList<>();
+        preparedStatement = connection.prepareStatement("select * from passengers");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            Passengers_Entity passengers_entity = new Passengers_Entity();
+            passengers_entity.setMeli_code(resultSet.getLong("meli_code"));
+            passengers_entity.setFirst_Payment(resultSet.getLong("First_Payment"));
+            passengers_entities.add(passengers_entity);
+
+        }
+        return passengers_entities;
     }
 
     public void commit() throws Exception {

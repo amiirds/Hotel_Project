@@ -1,0 +1,46 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {comp button1::l:::x, seq {par l {comp button_customer_payment::l:p:551:p, comp button_payment_per_customer::l:p:551:p, comp button_hotel_working_day::l:p:557:p}, space :0:0:x}, comp button_hotel_income::t:::x}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp button1:::p:59:p, space :::p, comp button_customer_payment:::p:60:p, space :::p, comp button_payment_per_customer:::p:58:p, space :::p, comp button_hotel_working_day:::p:58:p, space :::p, comp button_hotel_income:::p:54:p, space :::p}}"
+		} ) {
+			name: "this"
+			"title": "Hotel Income Option Menu"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button_customer_payment"
+				"text": "       Show  Customer payment"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 65536, 3, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_customer_paymentActionPerformed", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button_payment_per_customer"
+				"text": "    Payments per customer"
+				"font": #SwingDerivedFont0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_payment_per_customerActionPerformed", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button_hotel_working_day"
+				"text": "    Hotel working day"
+				"font": #SwingDerivedFont0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_working_dayActionPerformed", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button_hotel_income"
+				"text": "    Hotel Income "
+				"font": #SwingDerivedFont0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_incomeActionPerformed", false ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "     Hotel customers on hotel working days"
+				"font": #SwingDerivedFont0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 30, 25 )
+			"size": new java.awt.Dimension( 555, 355 )
+		} )
+	}
+}

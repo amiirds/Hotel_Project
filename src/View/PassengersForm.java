@@ -34,7 +34,7 @@ public class PassengersForm extends JFrame {
             passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
             passengers_entity.setFullname(textField_fullname.getText());
             passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
-            passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedItem())));
+            passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex()+1)));
             passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
             if (radioButton_iran.isSelected()){
                 passengers_entity.setNationality(radioButton_iran.getText());
@@ -58,7 +58,7 @@ public class PassengersForm extends JFrame {
             passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
             passengers_entity.setFullname(textField_fullname.getText());
             passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
-            passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedItem())));
+            passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex()+1)));
             passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
             if (radioButton_iran.isSelected()){
                 passengers_entity.setNationality(radioButton_iran.getText());
@@ -150,12 +150,11 @@ public class PassengersForm extends JFrame {
         {
             panel1.setBackground(Color.darkGray);
             panel1.setFont(panel1.getFont().deriveFont(panel1.getFont().getSize() + 3f));
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
-            (0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing.border
-            .TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt
-            .Color.red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
-            propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
-            ;}});
+            panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
+            0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
+            . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
+            red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
+            beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
 
             //---- label ----
             label.setText("Fullname =");

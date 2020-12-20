@@ -32,15 +32,15 @@ public class RoomsForm extends JFrame {
     private void buttonsubmitActionPerformed() {
         try {
             Rooms_Entity rooms_entity = new Rooms_Entity();
-            rooms_entity.setRoom_number(comboBoxroomnumber.getSelectedIndex());
+            rooms_entity.setRoom_number(comboBoxroomnumber.getSelectedIndex()+1);
             if (checkBox_vip.isSelected()) {
                 rooms_entity.setType_of_room(checkBox_vip.getText());
             }
             if (checkBox_Ordinary.isSelected()) {
                 rooms_entity.setType_of_room(checkBox_Ordinary.getText());
             }
-            rooms_entity.setNumber_of_Vip_rooms(comboBox_numbervip.getSelectedIndex());
-            rooms_entity.setNumber_of_Ordinary_rooms(comboBox_numberordinary.getSelectedIndex());
+            rooms_entity.setNumber_of_Vip_rooms(comboBox_numbervip.getSelectedIndex()+1);
+            rooms_entity.setNumber_of_Ordinary_rooms(comboBox_numberordinary.getSelectedIndex()+1);
             if (checkBox_singlebed.isSelected() && checkBox_doublebed.isSelected() || checkBox_QueenSizeBed.isSelected() && checkBox_KingSizeBed.isSelected() || checkBox_singlebed.isSelected() && checkBox_QueenSizeBed.isSelected() || checkBox_singlebed.isSelected() && checkBox_KingSizeBed.isSelected() || checkBox_QueenSizeBed.isSelected() && checkBox_doublebed.isSelected() || checkBox_doublebed.isSelected() && checkBox_KingSizeBed.isSelected()) {
                 JOptionPane.showMessageDialog(null, "Cannot select multiple choices ", "Error", 2);
                 System.exit(0);
@@ -86,15 +86,15 @@ public class RoomsForm extends JFrame {
         try {
 
             Rooms_Entity rooms_entity = new Rooms_Entity();
-            rooms_entity.setRoom_number(comboBoxroomnumber.getSelectedIndex());
+            rooms_entity.setRoom_number(comboBoxroomnumber.getSelectedIndex()+1);
             if (checkBox_vip.isSelected()) {
                 rooms_entity.setType_of_room(checkBox_vip.getText());
             }
             if (checkBox_Ordinary.isSelected()) {
                 rooms_entity.setType_of_room(checkBox_Ordinary.getText());
             }
-            rooms_entity.setNumber_of_Vip_rooms(comboBox_numbervip.getSelectedIndex());
-            rooms_entity.setNumber_of_Ordinary_rooms(comboBox_numberordinary.getSelectedIndex());
+            rooms_entity.setNumber_of_Vip_rooms(comboBox_numbervip.getSelectedIndex()+1);
+            rooms_entity.setNumber_of_Ordinary_rooms(comboBox_numberordinary.getSelectedIndex()+1);
             if (checkBox_singlebed.isSelected())
                 rooms_entity.setNormal_Room_Facilities(checkBox_singlebed.getText());
             if (checkBox_doublebed.isSelected())
@@ -130,7 +130,7 @@ public class RoomsForm extends JFrame {
 
     private void button_deleteActionPerformed() throws Exception {
         Rooms_Entity rooms_entity = new Rooms_Entity();
-        rooms_entity.setRoom_number(comboBoxroomnumber.getSelectedIndex());
+        rooms_entity.setRoom_number(comboBoxroomnumber.getSelectedIndex()+1);
         Rooms_Service rooms_service = new Rooms_Service();
         try {
             rooms_service.delete(rooms_entity);

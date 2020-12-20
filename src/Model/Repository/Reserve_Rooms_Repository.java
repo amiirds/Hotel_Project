@@ -46,10 +46,6 @@ public class Reserve_Rooms_Repository implements AutoCloseable {
         preparedStatement.setLong(6,reserve_rooms_entity.getRoom_number());
         preparedStatement.setString(7,reserve_rooms_entity.getFullname());
         preparedStatement.setLong(8,reserve_rooms_entity.getMeli_code());
-
-
-
-
         preparedStatement.executeUpdate();
     }
     public List<Reserve_Rooms_Entity> select_rooms() throws SQLException {
@@ -58,8 +54,8 @@ public class Reserve_Rooms_Repository implements AutoCloseable {
         List<Long> entityList = new ArrayList<>();
         Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
         while (resultSet.next()) {
-            if (resultSet.getString("status").equals("no")){
-               entityList.add(resultSet.getLong(""));
+            if (resultSet.getString("status").equals("No")){
+               entityList.add(resultSet.getLong("Room_number"));
             }
         }
         return null;
