@@ -30,7 +30,7 @@ public class Payment_per_customers extends JFrame {
     Passengers_Repo passengers_repo = new Passengers_Repo();
     List <Passengers_Entity> list = passengers_repo.list();
 
-    private void initComponents() throws SQLException {
+    private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
         String[] ids = new String[list.size()];
