@@ -20,12 +20,12 @@ import javax.swing.GroupLayout;
 public class Payment_per_customers extends JFrame {
     public Payment_per_customers() throws Exception {
         initComponents();
-        String[] ids = new String[list.size()];
-        int i = 0;
-        for (Passengers_Entity passengers_entity : list) {
-            ids[i] = passengers_entity.toString();
-            i++;
-        }
+//        String[] ids = new String[list.size()];
+//        int i = 0;
+//        for (Passengers_Entity passengers_entity : list) {
+//            ids[i] = passengers_entity.toString();
+//            i++;
+//        }
     }
     Passengers_Repo passengers_repo = new Passengers_Repo();
     List <Passengers_Entity> list = passengers_repo.list();
