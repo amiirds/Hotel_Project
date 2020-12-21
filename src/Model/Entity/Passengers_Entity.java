@@ -12,6 +12,14 @@ public class Passengers_Entity {
     private static long Special_Room_price = 300000;
     private static long Normal_Room_price = 100000;
 
+    @Override
+    public String toString() {
+        return
+                "\n" + "Meli_code = " + meli_code + "\t\t" +
+                " &\t First_Payment = " + First_Payment
+                ;
+    }
+
     public static long getSpecial_Room_price() {
         return Special_Room_price;
     }
