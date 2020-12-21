@@ -62,12 +62,14 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_vip"
 					"text": "VIP"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_vipActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 1"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_Ordinary"
 					"text": "Ordinary"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_OrdinaryActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 1"
 				} )
@@ -108,24 +110,28 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_singlebed"
 					"text": "Single Bed"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_singlebedActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 4"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_doublebed"
 					"text": "Double Bed"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_doublebedActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 4"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_QueenSizeBed"
 					"text": "Queen Size Bed"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_QueenSizeBedActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 2 4"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_KingSizeBed"
 					"text": "King Size Bed"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_KingSizeBedActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 3 4"
 				} )
@@ -140,24 +146,28 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_TV"
 					"text": "TV"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_TVActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 5"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_Bathtub"
 					"text": " Bathtub"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_BathtubActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 5"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_DuplexRoom"
 					"text": "Duplex Room"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_DuplexRoomActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 2 5"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_ps5"
 					"text": "PS5"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_ps5ActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 3 5"
 				} )
@@ -172,12 +182,14 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_yes"
 					"text": "Yes"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_yesActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 6"
 				} )
 				add( new FormComponent( "javax.swing.JCheckBox" ) {
 					name: "checkBox_no"
 					"text": "No"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox_noActionPerformed", false ) )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 6"
 				} )

@@ -8,6 +8,11 @@ import Model.Repository.user_repo;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author unknown
@@ -20,12 +25,29 @@ public class LoginForm extends JFrame {
     public LoginForm() {
         user_repo user_repository;
         initComponents();
+        Showtime();
         try {
             user_repository = new user_repo();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+    Timer timer;
+    void Showtime() {
+        ActionListener actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date date = new Date();
+                DateFormat timeformat = new SimpleDateFormat("HH:mm:ss");
+                String time = timeformat.format(date);
+                label_time.setText(time);
+
+            }
+        };
+        timer = new Timer(1000, actionListener);
+        timer.setInitialDelay(0);
+        timer.start();
     }
 
     private void button_submitActionPerformed() {
@@ -67,24 +89,26 @@ public class LoginForm extends JFrame {
         textField_username = new JTextField();
         passwordField1 = new JPasswordField();
         button_submit = new JButton();
+        label_time = new JLabel();
 
         //======== this ========
         setBackground(new Color(204, 51, 0));
+        setTitle("Login");
         var contentPane = getContentPane();
 
         //---- label1 ----
-        label1.setText("Login User");
+        label1.setText("Access To Panel");
         label1.setBackground(Color.red);
         label1.setFont(label1.getFont().deriveFont(label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 3f));
 
         //---- label2 ----
-        label2.setText("USERNAME =");
+        label2.setText("USERNAME(Name) =");
         label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 3f));
         label2.setBackground(Color.black);
         label2.setForeground(Color.black);
 
         //---- label3 ----
-        label3.setText("PASSWORD =");
+        label3.setText("PASSWORD(Meli code) =");
         label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 3f));
         label3.setForeground(Color.black);
 
@@ -106,38 +130,45 @@ public class LoginForm extends JFrame {
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(23, 23, 23)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addComponent(label2)
-                        .addComponent(label3))
-                    .addGap(28, 28, 28)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(textField_username, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(passwordField1))
-                    .addContainerGap(16, Short.MAX_VALUE))
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(button_submit, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-                    .addContainerGap())
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(100, 100, 100)
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(81, Short.MAX_VALUE))
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(button_submit, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                    .addGroup(contentPaneLayout.createParallelGroup()
+                                        .addComponent(label2)
+                                        .addComponent(label3))
+                                    .addGap(35, 35, 35)
+                                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(textField_username, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                        .addComponent(passwordField1, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                                    .addGap(0, 54, Short.MAX_VALUE)))
+                            .addContainerGap())
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+                            .addGap(101, 101, 101))))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-                    .addGap(32, 32, 32)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
+                    .addGap(27, 27, 27)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addComponent(label2)
                         .addComponent(textField_username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(37, 37, 37)
+                    .addGap(42, 42, 42)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label3)
                         .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .addGap(33, 33, 33)
-                    .addComponent(button_submit, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addComponent(button_submit, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                     .addContainerGap())
         );
         pack();
@@ -153,5 +184,6 @@ public class LoginForm extends JFrame {
     private JTextField textField_username;
     private JPasswordField passwordField1;
     private JButton button_submit;
+    private JLabel label_time;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -15,8 +15,8 @@ public class Passengers_Entity {
     @Override
     public String toString() {
         return
-                "\n" + "Meli_code = " + meli_code + "\t\t" +
-                " &\t First_Payment = " + First_Payment
+                  "Meli_code = " + meli_code + "\t\t" +
+                " =====>\t First_Payment = " + First_Payment + "\tTooman"
                 ;
     }
 

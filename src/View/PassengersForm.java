@@ -110,6 +110,27 @@ public class PassengersForm extends JFrame {
         label_totalpay.setText(String.valueOf(total_payment));
     }
 
+    private void radioButton_iranActionPerformed() {
+        if (radioButton_iran.isSelected())
+            radioButton_foreigner.setSelected(false);
+    }
+
+    private void radioButton_foreignerActionPerformed() {
+        if (radioButton_foreigner.isSelected())
+            radioButton_iran.setSelected(false);
+    }
+
+    private void radioButton_vipActionPerformed() {
+        if (radioButton_vip.isSelected())
+            radioButton_normal.setSelected(false);
+    }
+
+    private void radioButton_normalActionPerformed() {
+        if (radioButton_normal.isSelected())
+            radioButton_vip.setSelected(false);
+    }
+
+
     Integer[] number = {1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10 ,11 ,12 ,13 ,14 ,15 ,16 ,17 ,18 ,19 ,20 ,21 ,22 ,23 ,24 ,25 ,26 ,27 ,28 ,29 ,30 ,31 ,32 ,33 ,34 ,35 ,36 ,37 ,38 ,39 ,40 ,41 ,42 ,43 ,44 ,45 ,46 ,47 ,48 ,49 ,50 ,51 ,52 ,53 ,54 ,55 ,56 ,57 ,58 ,59 ,60 ,61 ,62 ,63 ,64 ,65 ,66 ,67 ,68 ,69 ,70 ,71 ,72 ,73 ,74 ,75 ,76 ,77 ,78 ,79 ,80 ,81 ,82 ,83 ,84 ,85 ,86 ,87 ,88 ,89 ,90 ,91 ,92 ,93 ,94 ,95 ,96 ,97 ,98 ,99 ,100 ,101 ,102 ,103 ,104 ,105 ,106 ,107 ,108 ,109 ,110 ,111 ,112 ,113 ,114 ,115 ,116 ,117 ,118 ,119 ,120 ,121 ,122 ,123 ,124 ,125 ,126 ,127 ,128 ,129 ,130 ,131 ,132 ,133 ,134 ,135 ,136 ,137 ,138 ,139 ,140 ,141 ,142 ,143 ,144 ,145 ,146 ,147 ,148 ,149 ,150 ,151 ,152 ,153 ,154 ,155 ,156 ,157 ,158 ,159 ,160 ,161 ,162 ,163 ,164 ,165 ,166 ,167 ,168 ,169 ,170 ,171 ,172 ,173 ,174 ,175 ,176 ,177 ,178 ,179 ,180 ,181 ,182 ,183 ,184 ,185 ,186 ,187 ,188 ,189 ,190 ,191 ,192 ,193 ,194 ,195 ,196 ,197 ,198 ,199 ,200};
 
     private void initComponents() {
@@ -150,11 +171,12 @@ public class PassengersForm extends JFrame {
         {
             panel1.setBackground(Color.darkGray);
             panel1.setFont(panel1.getFont().deriveFont(panel1.getFont().getSize() + 3f));
-            panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
-            0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
-            . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-            red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
-            beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+            EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing
+            . border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ),
+            java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () ))
+            throw new RuntimeException( ); }} );
 
             //---- label ----
             label.setText("Fullname =");
@@ -165,7 +187,7 @@ public class PassengersForm extends JFrame {
             label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 2f));
 
             //---- label4 ----
-            label4.setText("Meli code =");
+            label4.setText("Meli code or passport No=");
             label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 2f));
 
             //---- label5 ----
@@ -204,9 +226,11 @@ public class PassengersForm extends JFrame {
 
             //---- radioButton_iran ----
             radioButton_iran.setText("Iranian");
+            radioButton_iran.addActionListener(e -> radioButton_iranActionPerformed());
 
             //---- radioButton_foreigner ----
             radioButton_foreigner.setText("Foreigner");
+            radioButton_foreigner.addActionListener(e -> radioButton_foreignerActionPerformed());
 
             //---- label10 ----
             label10.setText("VIP/NORMAL =");
@@ -214,9 +238,11 @@ public class PassengersForm extends JFrame {
 
             //---- radioButton_vip ----
             radioButton_vip.setText("vip");
+            radioButton_vip.addActionListener(e -> radioButton_vipActionPerformed());
 
             //---- radioButton_normal ----
             radioButton_normal.setText("normal");
+            radioButton_normal.addActionListener(e -> radioButton_normalActionPerformed());
 
             //---- button_fullpayment ----
             button_fullpayment.setText("Show full payment");
@@ -255,12 +281,13 @@ public class PassengersForm extends JFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addComponent(label5)
-                                    .addComponent(label4, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label3, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(label, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label4, GroupLayout.PREFERRED_SIZE, 212, GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addGroup(panel1Layout.createSequentialGroup()
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                                         .addGroup(panel1Layout.createParallelGroup()
                                             .addComponent(textField_fullname, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
                                             .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
@@ -270,7 +297,7 @@ public class PassengersForm extends JFrame {
                                                 .addComponent(textField_codemeli, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                                                 .addComponent(textField_firstpay, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))))
                                     .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(193, 193, 193)
+                                        .addGap(84, 84, 84)
                                         .addComponent(radioButton_iran, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
                                         .addGap(31, 31, 31)
                                         .addComponent(radioButton_foreigner)))))

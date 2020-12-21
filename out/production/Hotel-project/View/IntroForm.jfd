@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "7.0.2.6.321" Java: "11.0.8" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :::p, par t {comp button_login:::::x, comp button_Reservation:::p:401:p}, space :::x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp button_login:::p:101:p, space u:::p, comp button_Reservation:::p:107:p, space :::x}}"
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {par l:l::p {comp button_Reservation:::::x, comp button_login:::p:427:p}, seq l {comp label_time:::p:112:p, space ::221:x, comp label_date:::p:104:p}}, space :::p}}"
+			"$verticalGroup": "par l {seq t {par l {comp label_time:::p:48:p, comp label_date:::p:48:p}, space ::18:x, comp button_login:::p:101:p, space :p:12:p, comp button_Reservation:::p:107:p, space :p:20:p}}"
 		} ) {
 			name: "this"
 			"title": "Welcome"
@@ -19,9 +19,19 @@ new FormModel {
 				"text": "Reservation"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_ReservationActionPerformed", false ) )
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_time"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_date"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 415, 255 )
+			"size": new java.awt.Dimension( 460, 330 )
 		} )
 	}
 }

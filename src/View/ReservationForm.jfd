@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 			"$layoutConstraints": "hidemode 3"
-			"$columnConstraints": "[401]"
+			"$columnConstraints": "[466]"
 			"$rowConstraints": "[][][381]"
 		} ) {
 			name: "this"
@@ -31,7 +31,7 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 				"$layoutConstraints": "hidemode 3,align left top"
-				"$columnConstraints": "[230,fill][100,fill][54,fill][fill][15,fill][fill][117,fill][133,fill][104,fill][170,fill]"
+				"$columnConstraints": "[230,fill][100,fill][54,fill][fill][15,fill][fill][117,fill][133,fill][104,fill][fill][170,fill]"
 				"$rowConstraints": "[45][35][36][35][34][48][38][48][48][][]"
 			} ) {
 				name: "panel1"
@@ -182,9 +182,8 @@ new FormModel {
 				"value": "cell 0 1 1 2"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 440, 640 )
+			"size": new java.awt.Dimension( 500, 640 )
 			"location": new java.awt.Point( 30, 5 )
 		} )
 	}
 }
-

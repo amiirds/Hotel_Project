@@ -10,8 +10,8 @@ new FormModel {
 			name: "this"
 			"title": "Welcome"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {space ::196:x, comp label1:::p:234:p, space :p:163:p}}"
-				"$verticalGroup": "par l {seq l {space :p:21:p, comp label1:::p:26:p, space ::34:x}}"
+				"$horizontalGroup": "par l {seq t {space ::184:x, comp label1:::p:239:p, space :p:170:p}}"
+				"$verticalGroup": "par l {seq l {space :p:22:p, comp label1:::p:26:p, space ::33:x}}"
 			} ) {
 				name: "panel1"
 				"background": new java.awt.Color( 153, 0, 0, 255 )
@@ -19,12 +19,13 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label1"
 					"text": "Payment for Each Client"
-					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {space ::28:x, comp scrollPane1:::p:523:p, space :p:22:p}}"
-				"$verticalGroup": "par l {seq l {space :p:23:p, comp scrollPane1:::p:386:p, space ::43:x}}"
+				"$horizontalGroup": "par l {seq {space ::36:x, par l {seq t {comp scrollPane1:::p:523:p, space :p:22:p}, seq t {comp button1:::p:121:p, space :p:215:p}}}}"
+				"$verticalGroup": "par l {seq l {space :p:23:p, comp scrollPane1:::p:386:p, space s:::p, comp button1:::p::p, space ::10:x}}"
 			} ) {
 				name: "panel2"
 				"background": sfield java.awt.Color darkGray
@@ -38,10 +39,15 @@ new FormModel {
 						"border": new javax.swing.border.TitledBorder( "List of payment" )
 					} )
 				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "Exit"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", false ) )
+				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 50, 30 )
-			"size": new java.awt.Dimension( 595, 575 )
+			"size": new java.awt.Dimension( 595, 590 )
 		} )
 	}
 }

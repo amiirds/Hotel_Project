@@ -4,6 +4,7 @@
 
 package View;
 
+import javax.swing.plaf.*;
 import Model.Entity.Reserve_Rooms_Entity;
 import Model.Repository.Reserve_Rooms_Repository;
 import Model.Repository.Rooms_Repository;
@@ -12,6 +13,12 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author unknown
@@ -21,7 +28,32 @@ public class ReservationForm extends JFrame {
         Reserve_Rooms_Repository reserve_rooms_repository;
         initComponents();
         reserve_rooms_repository = new Reserve_Rooms_Repository();
+        date();
+        Showtime();
+
     }
+
+    public void date() {
+        String textdate = new SimpleDateFormat("yyyy/MM/dd", Locale.US).format(new Date());
+        textField_dataofreserv.setText(textdate );
+    }
+    Timer timer;
+    void Showtime() {
+        ActionListener actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date date = new Date();
+                DateFormat timeformat = new SimpleDateFormat("HH:mm:ss");
+                String time = timeformat.format(date);
+                textField_timeofreserv.setText(time);
+
+            }
+        };
+        timer = new Timer(1000, actionListener);
+        timer.setInitialDelay(0);
+        timer.start();
+    }
+
 
     private void buttonsubmitActionPerformed() {
         try {
@@ -65,13 +97,18 @@ public class ReservationForm extends JFrame {
         }
     }
 
-    private void button_deleteActionPerformed() throws Exception {
+    private void button_deleteActionPerformed() {
         Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
         if (reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("")) {
             JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
         } else {
             reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            Reserve_Rooms_Service reserve_rooms_service = new Reserve_Rooms_Service();
+            Reserve_Rooms_Service reserve_rooms_service = null;
+            try {
+                reserve_rooms_service = new Reserve_Rooms_Service();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             try {
                 reserve_rooms_service.delete(reserve_rooms_entity);
                 JOptionPane.showMessageDialog(null, "Successfully Delete ", "Success", 1);
@@ -84,9 +121,9 @@ public class ReservationForm extends JFrame {
     Rooms_Repository roomsRepository = new Rooms_Repository();
     Object[] number = roomsRepository.select().toArray();
     private void initComponents() throws Exception {
+
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
-
         panel2 = new JPanel();
         label1 = new JLabel();
         panel1 = new JPanel();
@@ -117,7 +154,7 @@ public class ReservationForm extends JFrame {
         contentPane.setLayout(new MigLayout(
             "hidemode 3",
             // columns
-            "[401]",
+            "[466]",
             // rows
             "[]" +
             "[]" +
@@ -126,13 +163,13 @@ public class ReservationForm extends JFrame {
         //======== panel2 ========
         {
             panel2.setBackground(new Color(153, 0, 0));
-            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
-            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing
-            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
-            Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
-            ) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
-            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName (
-            ) )) throw new RuntimeException( ); }} );
+            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+            javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax
+            . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+            .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
+            . Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans.
+            PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .
+            equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
             panel2.setLayout(new MigLayout(
                 "hidemode 3",
                 // columns
@@ -184,6 +221,7 @@ public class ReservationForm extends JFrame {
                 "[117,fill]" +
                 "[133,fill]" +
                 "[104,fill]" +
+                "[fill]" +
                 "[170,fill]",
                 // rows
                 "[45]" +
@@ -294,13 +332,7 @@ public class ReservationForm extends JFrame {
 
             //---- button_delete ----
             button_delete.setText("Delete");
-            button_delete.addActionListener(e -> {
-                try {
-                    button_deleteActionPerformed();
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
-            });
+            button_delete.addActionListener(e -> button_deleteActionPerformed());
             panel1.add(button_delete, "cell 2 9 3 1");
         }
         contentPane.add(panel1, "cell 0 1 1 2");
