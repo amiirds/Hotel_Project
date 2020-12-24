@@ -22,22 +22,17 @@ import javax.swing.GroupLayout;
 public class Payment_per_customers extends JFrame {
     public Payment_per_customers() throws Exception {
         initComponents();
-//        String[] ids = new String[list.size()];
-//        int i = 0;
-//        for (Passengers_Entity passengers_entity : list) {
-//            ids[i] = passengers_entity.toString();
-//            i++;
-//        }
     }
 
     private void button1ActionPerformed() {
         try {
-            JOptionPane.showMessageDialog(null,"After you click Ok program will be closed in 5 second","Announcement",2);
-            Thread.sleep(5000);
+            ImageIcon img = new ImageIcon("src/ds.png");
+            JOptionPane.showMessageDialog(null,"After you click Ok window will be closed in 2 second","Announcement",2,img);
+            Thread.sleep(1500);
+            setVisible(false);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.exit(0);
     }
     Passengers_Repo passengers_repo = new Passengers_Repo();
     List <Passengers_Entity> list = passengers_repo.list();
@@ -66,12 +61,13 @@ public class Payment_per_customers extends JFrame {
         {
             panel1.setBackground(new Color(153, 0, 0));
             panel1.setBorder(null);
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
-            (0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border
-            .TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt
-            .Color.red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
-            propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
-            ;}});
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+            javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax
+            . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+            .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+            . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans.
+            PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
+            equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- label1 ----
             label1.setText("Payment for Each Client");
@@ -104,9 +100,9 @@ public class Payment_per_customers extends JFrame {
             {
 
                 //---- list1 ----
-                list1.setFont(list1.getFont().deriveFont(list1.getFont().getStyle() | Font.BOLD, list1.getFont().getSize() + 2f));
+                list1.setFont(list1.getFont().deriveFont(list1.getFont().getStyle() | Font.BOLD, list1.getFont().getSize() + 3f));
                 list1.setBackground(Color.darkGray);
-                list1.setForeground(Color.black);
+                list1.setForeground(Color.white);
                 list1.setBorder(new TitledBorder("List of payment"));
                 scrollPane1.setViewportView(list1);
             }

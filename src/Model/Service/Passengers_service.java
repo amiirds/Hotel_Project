@@ -16,7 +16,6 @@ public class Passengers_service {
     public void insert(Passengers_Entity passengers_entity) throws Exception {
         passengers_repo.insert(passengers_entity);
         passengers_repo.commit();
-        System.out.println("from service"+passengers_entity.getFullname());
 
     }
     public void delete(Passengers_Entity passengers_entity) throws Exception {

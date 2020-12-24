@@ -4,11 +4,11 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :::p, par l {seq {comp button_rooms:::p:177:p, space u:::p, comp button_income:::p:177:p, space :::x}, seq {comp button_passengers:::::x, space s:::p, comp button_employees:::p:170:p, space :p:7:p}}}}"
-			"$verticalGroup": "par l {seq l {space :::p, par b {comp button_passengers::b:p:72:p, comp button_employees::b:p:72:p}, space :p:18:p, par b {comp button_rooms::b:p:72:p, comp button_income::b:p:70:p}, space ::18:x}}"
+			"$horizontalGroup": "par l {seq l {space :::p, par l {comp button_rooms::::183:x, comp button_passengers:::::x}, space :::p, par l {comp button_employees::t:p:177:p, comp button_income::t:p:177:p}, space :::p}, seq t {space :::x, comp label_image:::p:132:p, space :p:98:p}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp label_image::::101:x, space :p:18:p, par b {comp button_passengers::b:p:72:p, comp button_employees::b:p:72:p}, space :p:18:p, par b {comp button_income::b:p:70:p, comp button_rooms::b:p:72:p}, space :p:19:p}}"
 		} ) {
 			name: "this"
-			"title": "Menu"
+			"title": "    Menu"
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button_passengers"
 				"text": "Passsengers "
@@ -30,9 +30,12 @@ new FormModel {
 				"text": "Hotel Income"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_incomeActionPerformed", false ) )
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_image"
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 380, 210 )
+			"size": new java.awt.Dimension( 380, 330 )
 		} )
 	}
 }

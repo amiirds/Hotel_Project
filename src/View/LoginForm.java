@@ -19,7 +19,7 @@ import java.util.Date;
  */
 
 public class LoginForm extends JFrame {
-
+    private ImageIcon image;
     public int index;
 
     public LoginForm() {
@@ -31,6 +31,8 @@ public class LoginForm extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        image = new ImageIcon("src/login.png");
+        label_image.setIcon(image);
 
     }
     Timer timer;
@@ -71,6 +73,7 @@ public class LoginForm extends JFrame {
             if (exist == true) {
                 MenuForm menuForm = new MenuForm();
                 menuForm.setVisible(true);
+                setVisible(false);
             }
             if (exist == false) {
                 JOptionPane.showMessageDialog(null,"username or password doesn't exist or wrong","ERROR",2);
@@ -83,7 +86,7 @@ public class LoginForm extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
-        label1 = new JLabel();
+        label_image = new JLabel();
         label2 = new JLabel();
         label3 = new JLabel();
         textField_username = new JTextField();
@@ -96,10 +99,9 @@ public class LoginForm extends JFrame {
         setTitle("Login");
         var contentPane = getContentPane();
 
-        //---- label1 ----
-        label1.setText("Access To Panel");
-        label1.setBackground(Color.red);
-        label1.setFont(label1.getFont().deriveFont(label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 3f));
+        //---- label_image ----
+        label_image.setBackground(Color.red);
+        label_image.setFont(label_image.getFont().deriveFont(label_image.getFont().getStyle() | Font.BOLD, label_image.getFont().getSize() + 3f));
 
         //---- label2 ----
         label2.setText("USERNAME(Name) =");
@@ -133,33 +135,29 @@ public class LoginForm extends JFrame {
                     .addContainerGap()
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(button_submit, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addGroup(contentPaneLayout.createParallelGroup()
-                                        .addComponent(label2)
-                                        .addComponent(label3))
-                                    .addGap(35, 35, 35)
-                                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(textField_username, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                                        .addComponent(passwordField1, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
-                                    .addGap(0, 54, Short.MAX_VALUE)))
-                            .addContainerGap())
-                        .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-                            .addGap(101, 101, 101))))
+                            .addGap(57, 57, 57)
+                            .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(110, Short.MAX_VALUE))
+                        .addComponent(button_submit, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(label2)
+                                .addComponent(label3))
+                            .addGap(35, 35, 35)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textField_username)
+                                .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 60, Short.MAX_VALUE))))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
-                    .addGap(27, 27, 27)
+                        .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addComponent(label2)
                         .addComponent(textField_username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
@@ -167,8 +165,8 @@ public class LoginForm extends JFrame {
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label3)
                         .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(33, 33, 33)
-                    .addComponent(button_submit, GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                    .addGap(53, 53, 53)
+                    .addComponent(button_submit, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
         );
         pack();
@@ -178,7 +176,7 @@ public class LoginForm extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
-    private JLabel label1;
+    private JLabel label_image;
     private JLabel label2;
     private JLabel label3;
     private JTextField textField_username;

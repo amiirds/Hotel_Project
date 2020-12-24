@@ -19,14 +19,15 @@ import java.awt.*;
  * @author unknown
  */
 public class RoomsForm extends JFrame {
-
+    private ImageIcon image;
     public RoomsForm() throws Exception {
 
         Rooms_Repository rooms_repository;
         initComponents();
 
         rooms_repository = new Rooms_Repository();
-
+        image = new ImageIcon("src/living-room-2.png");
+        label_image.setIcon(image);
     }
 
     private void buttonsubmitActionPerformed() {
@@ -223,6 +224,7 @@ public class RoomsForm extends JFrame {
             // Generated using JFormDesigner Evaluation license - unknown
             panel2 = new JPanel();
             label1 = new JLabel();
+            label_image = new JLabel();
             panel1 = new JPanel();
             labelnumber = new JLabel();
             comboBoxroomnumber = new JComboBox(room_number);
@@ -262,17 +264,16 @@ public class RoomsForm extends JFrame {
                 // rows
                 "[]" +
                 "[]" +
-                "[381]"));
+                "[500]"));
 
             //======== panel2 ========
             {
                 panel2.setBackground(new Color(204, 0, 0));
-                panel2.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
-                EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing
-                . border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,
-                java . awt. Color .red ) ,panel2. getBorder () ) ); panel2. addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
-                { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )
-                throw new RuntimeException( ) ;} } );
+                panel2.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
+                ,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
+                ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
+                panel2. getBorder()));panel2. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+                ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
                 panel2.setLayout(new MigLayout(
                     "hidemode 3",
                     // columns
@@ -293,8 +294,14 @@ public class RoomsForm extends JFrame {
                     "[fill]" +
                     "[fill]" +
                     "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
                     "[fill]",
                     // rows
+                    "[]" +
                     "[]" +
                     "[]"));
 
@@ -302,7 +309,8 @@ public class RoomsForm extends JFrame {
                 label1.setText("Rooms Mangment");
                 label1.setFont(label1.getFont().deriveFont(label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 2f));
                 label1.setForeground(Color.white);
-                panel2.add(label1, "cell 0 0 1 2");
+                panel2.add(label1, "cell 0 0 1 3");
+                panel2.add(label_image, "cell 22 1 1 2");
             }
             contentPane.add(panel2, "cell 0 0,growx");
 
@@ -329,7 +337,7 @@ public class RoomsForm extends JFrame {
                     "[48]" +
                     "[48]" +
                     "[]" +
-                    "[]"));
+                    "[31]"));
 
                 //---- labelnumber ----
                 labelnumber.setText("Room Number =");
@@ -461,6 +469,7 @@ public class RoomsForm extends JFrame {
     // Generated using JFormDesigner Evaluation license - unknown
     private JPanel panel2;
     private JLabel label1;
+    private JLabel label_image;
     private JPanel panel1;
     private JLabel labelnumber;
     private JComboBox comboBoxroomnumber;

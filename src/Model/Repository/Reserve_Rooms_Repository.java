@@ -1,8 +1,8 @@
 package Model.Repository;
 
 
-import Model.Entity.Reserve_Rooms_Entity;
 
+import Model.Entity.Reserve_Rooms_Entity;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +17,10 @@ public class Reserve_Rooms_Repository implements AutoCloseable {
         preparedStatement = connection.prepareStatement("CREATE table rooms (meli_code number , fullname varchar(40), Room_Id varchar(50), Room_number number ,Number_of_Vip_rooms number , Number_of_Ordinary_rooms number, Special_Room_price number , Normal_Room_price number , Normal_Room_Facilities varchar(225), Special_Room_Facilities varchar(225), type_of_room varchar(80) ,Staying_time number , Date_of_reserve varchar(40), time_of_reserve varchar(40) ,phone_number varchar(90) , First_Payment number, status varchar (40))");
 //        preparedStatement.executeUpdate();
     }
+
     public void insert (Reserve_Rooms_Entity reserve_rooms_entity) throws Exception {
-        preparedStatement = connection.prepareStatement("insert into rooms (meli_code,fullname,Room_number,Staying_time,Date_of_reserve,time_of_reserve,phone_number,First_Payment) values (?,?,?,?,?,?,?,?)");
+
+        preparedStatement = connection.prepareStatement("insert into rooms (meli_code,fullname,Room_number,Staying_time,Date_of_reserve,time_of_reserve,phone_number,First_Payment,status) values (?,?,?,?,?,?,?,?,?)");
         preparedStatement.setLong(1,reserve_rooms_entity.getMeli_code());
         preparedStatement.setString(2,reserve_rooms_entity.getFullname());
         preparedStatement.setLong(3,reserve_rooms_entity.getRoom_number());
@@ -27,6 +29,8 @@ public class Reserve_Rooms_Repository implements AutoCloseable {
         preparedStatement.setString(6,reserve_rooms_entity.getTime_of_reserve());
         preparedStatement.setString(7,reserve_rooms_entity.getPhone_number());
         preparedStatement.setLong(8,reserve_rooms_entity.getFirst_Payment());
+        preparedStatement.setString(9,"yes");
+
         preparedStatement.executeUpdate();
 
     }
@@ -60,11 +64,21 @@ public class Reserve_Rooms_Repository implements AutoCloseable {
         }
         return null;
     }
+
+    public List<String> list(String date) throws SQLException {
+        List <String> reserve_rooms_entities = new ArrayList<>();
+        preparedStatement = connection.prepareStatement( "select *from rooms where Date_of_reserve = '" + date + "'");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            reserve_rooms_entities.add(resultSet.getString("fullname"));
+        }
+        return reserve_rooms_entities;
+    }
+
+
+
     public void commit() throws Exception {
         connection.commit ();
-    }
-    public void rollback() throws Exception {
-        connection.rollback ();
     }
 
     @Override

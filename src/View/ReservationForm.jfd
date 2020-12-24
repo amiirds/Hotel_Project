@@ -13,11 +13,16 @@ new FormModel {
 			"title": "Reservation"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 				"$layoutConstraints": "hidemode 3"
-				"$columnConstraints": "[fill][][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
-				"$rowConstraints": "[][]"
+				"$columnConstraints": "[fill][][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+				"$rowConstraints": "[32][][]"
 			} ) {
 				name: "panel2"
 				"background": new java.awt.Color( 153, 0, 0, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_img"
+				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+					"value": "cell 9 0 10 3"
+				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label1"
 					"text": "Room ReservationMangment"
@@ -182,7 +187,7 @@ new FormModel {
 				"value": "cell 0 1 1 2"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 500, 640 )
+			"size": new java.awt.Dimension( 500, 660 )
 			"location": new java.awt.Point( 30, 5 )
 		} )
 	}

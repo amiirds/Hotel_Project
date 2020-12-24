@@ -16,13 +16,16 @@ import javax.swing.GroupLayout;
 /**
  * @author unknown
  */
+
 public class IntroForm extends JFrame {
+    private ImageIcon image;
     public IntroForm() {
         initComponents();
         Showdate();
         Showtime();
+        image = new ImageIcon("src/intro.png");
+        label_image.setIcon(image);
     }
-
     void Showdate() {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
@@ -68,6 +71,7 @@ public class IntroForm extends JFrame {
         button_Reservation = new JButton();
         label_time = new JLabel();
         label_date = new JLabel();
+        label_image = new JLabel();
 
         //======== this ========
         setTitle("Welcome");
@@ -96,25 +100,32 @@ public class IntroForm extends JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(15, 15, 15)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                            .addComponent(button_Reservation, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(button_login, GroupLayout.PREFERRED_SIZE, 427, GroupLayout.PREFERRED_SIZE))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                            .addComponent(label_date, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                            .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(label_date, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(button_Reservation, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button_login, GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label_date, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(label_time, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label_date, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 70, Short.MAX_VALUE))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addGap(0, 18, Short.MAX_VALUE)
+                            .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+                    .addGap(29, 29, 29)
                     .addComponent(button_login, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
-                    .addGap(12, 12, 12)
-                    .addComponent(button_Reservation, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(button_Reservation, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
                     .addGap(20, 20, 20))
         );
         pack();
@@ -128,5 +139,6 @@ public class IntroForm extends JFrame {
     private JButton button_Reservation;
     private JLabel label_time;
     private JLabel label_date;
+    private JLabel label_image;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

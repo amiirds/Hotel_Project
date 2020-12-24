@@ -32,13 +32,14 @@ public class Hotel_income_form extends JFrame {
     }
 
     private void button2ActionPerformed() {
-        JOptionPane.showMessageDialog(null, "Your program it close in 5 second \n thank you \n click ok for closing program  ","Thanks",2);
         try {
-            Thread.sleep(5000);
+            ImageIcon img = new ImageIcon("src/ds.png");
+            JOptionPane.showMessageDialog(null,"After you click Ok window will be closed in 2 second","Announcement",2,img);
+            Thread.sleep(1500);
+            setVisible(false);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.exit(0);
 
     }
 

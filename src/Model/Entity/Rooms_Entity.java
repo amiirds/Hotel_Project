@@ -12,6 +12,8 @@ public class Rooms_Entity {
     private String type_of_room;
     private String status;
 
+
+
     public String getStatus() {
         return status;
     }

@@ -36,13 +36,14 @@ public class Customers_payment extends JFrame {
     }
 
     private void button_exitActionPerformed() {
-        JOptionPane.showMessageDialog(null,"After 5second that you click Ok Program will be closed ","Announcement",2);
         try {
-            Thread.sleep(5000);
+            ImageIcon img = new ImageIcon("src/ds.png");
+            JOptionPane.showMessageDialog(null,"After you click Ok window will be closed in 2 second","Announcement",2,img);
+            Thread.sleep(1500);
+            setVisible(false);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.exit(0);
     }
 
     private void initComponents() {

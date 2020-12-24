@@ -27,14 +27,24 @@ public class Hotel_menu extends JFrame {
         hotel_income_form.setVisible(true);
     }
 
-    private void button_payment_per_customerActionPerformed() throws Exception {
-        Payment_per_customers payment_per_customers = new Payment_per_customers();
+    private void button_payment_per_customerActionPerformed() {
+        Payment_per_customers payment_per_customers = null;
+        try {
+            payment_per_customers = new Payment_per_customers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         payment_per_customers.setVisible(true);
     }
 
     private void button_customer_paymentActionPerformed() {
         Customers_payment customers_payment = new Customers_payment();
         customers_payment.setVisible(true);
+    }
+
+    private void button_hote_customerActionPerformed() {
+        Hotel_customer_workingday_form hotelCustomerWorkingdayForm = new Hotel_customer_workingday_form();
+        hotelCustomerWorkingdayForm.setVisible(true);
     }
 
     private void initComponents() {
@@ -44,7 +54,7 @@ public class Hotel_menu extends JFrame {
         button_payment_per_customer = new JButton();
         button_hotel_working_day = new JButton();
         button_hotel_income = new JButton();
-        button1 = new JButton();
+        button_hote_customer = new JButton();
 
         //======== this ========
         setTitle("Hotel Income Option Menu");
@@ -58,13 +68,7 @@ public class Hotel_menu extends JFrame {
         //---- button_payment_per_customer ----
         button_payment_per_customer.setText("    Payments per customer");
         button_payment_per_customer.setFont(button_payment_per_customer.getFont().deriveFont(button_payment_per_customer.getFont().getStyle() & ~Font.BOLD, button_payment_per_customer.getFont().getSize() + 3f));
-        button_payment_per_customer.addActionListener(e -> {
-            try {
-                button_payment_per_customerActionPerformed();
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
-        });
+        button_payment_per_customer.addActionListener(e -> button_payment_per_customerActionPerformed());
 
         //---- button_hotel_working_day ----
         button_hotel_working_day.setText("    Hotel working day");
@@ -76,9 +80,10 @@ public class Hotel_menu extends JFrame {
         button_hotel_income.setFont(button_hotel_income.getFont().deriveFont(button_hotel_income.getFont().getStyle() & ~Font.BOLD, button_hotel_income.getFont().getSize() + 3f));
         button_hotel_income.addActionListener(e -> button_hotel_incomeActionPerformed());
 
-        //---- button1 ----
-        button1.setText("     Hotel customers on hotel working days");
-        button1.setFont(button1.getFont().deriveFont(button1.getFont().getStyle() & ~Font.BOLD, button1.getFont().getSize() + 3f));
+        //---- button_hote_customer ----
+        button_hote_customer.setText("     Hotel customers on hotel working days");
+        button_hote_customer.setFont(button_hote_customer.getFont().deriveFont(button_hote_customer.getFont().getStyle() & ~Font.BOLD, button_hote_customer.getFont().getSize() + 3f));
+        button_hote_customer.addActionListener(e -> button_hote_customerActionPerformed());
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -86,7 +91,7 @@ public class Hotel_menu extends JFrame {
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(button1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button_hote_customer, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addComponent(button_customer_payment, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
@@ -100,7 +105,7 @@ public class Hotel_menu extends JFrame {
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_hote_customer, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(button_customer_payment, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -122,6 +127,6 @@ public class Hotel_menu extends JFrame {
     private JButton button_payment_per_customer;
     private JButton button_hotel_working_day;
     private JButton button_hotel_income;
-    private JButton button1;
+    private JButton button_hote_customer;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

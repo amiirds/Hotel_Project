@@ -24,13 +24,15 @@ import java.util.Locale;
  * @author unknown
  */
 public class ReservationForm extends JFrame {
+    private ImageIcon image;
     public ReservationForm() throws Exception {
         Reserve_Rooms_Repository reserve_rooms_repository;
         initComponents();
         reserve_rooms_repository = new Reserve_Rooms_Repository();
         date();
         Showtime();
-
+        image = new ImageIcon("src/booking.png");
+        label_img.setIcon(image);
     }
 
     public void date() {
@@ -71,7 +73,7 @@ public class ReservationForm extends JFrame {
             JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Failed to saved " + e.getStackTrace(),"Error",2);
+            JOptionPane.showMessageDialog(null,"Failed to saved " ,"Error",2);
 
         }
     }
@@ -125,6 +127,7 @@ public class ReservationForm extends JFrame {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
         panel2 = new JPanel();
+        label_img = new JLabel();
         label1 = new JLabel();
         panel1 = new JPanel();
         label2 = new JLabel();
@@ -163,13 +166,14 @@ public class ReservationForm extends JFrame {
         //======== panel2 ========
         {
             panel2.setBackground(new Color(153, 0, 0));
-            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-            javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax
-            . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-            .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
-            . Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans.
-            PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .
-            equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            panel2.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder (
+            new javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
+            , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
+            , new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 )
+            ,java . awt. Color .red ) ,panel2. getBorder () ) ); panel2. addPropertyChangeListener(
+            new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+            ) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+            ;} } );
             panel2.setLayout(new MigLayout(
                 "hidemode 3",
                 // columns
@@ -190,10 +194,13 @@ public class ReservationForm extends JFrame {
                 "[fill]" +
                 "[fill]" +
                 "[fill]" +
+                "[fill]" +
                 "[fill]",
                 // rows
+                "[32]" +
                 "[]" +
                 "[]"));
+            panel2.add(label_img, "cell 9 0 10 3");
 
             //---- label1 ----
             label1.setText("Room ReservationMangment");
@@ -344,6 +351,7 @@ public class ReservationForm extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
     private JPanel panel2;
+    private JLabel label_img;
     private JLabel label1;
     private JPanel panel1;
     private JLabel label2;

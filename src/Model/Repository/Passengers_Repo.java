@@ -90,11 +90,13 @@ public class Passengers_Repo implements AutoCloseable {
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             Passengers_Entity passengers_entity = new Passengers_Entity();
+            passengers_entity.setFullname(resultSet.getString("Fullname"));
             passengers_entity.setMeli_code(resultSet.getLong("meli_code"));
             passengers_entity.setFirst_Payment(resultSet.getLong("First_Payment"));
             passengers_entities.add(passengers_entity);
 
         }
+
         return passengers_entities;
     }
 

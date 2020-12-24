@@ -11,11 +11,14 @@ import javax.swing.GroupLayout;
  * @author unknown
  */
 public class MenuForm extends JFrame {
+    private ImageIcon image;
     public MenuForm() {
         initComponents();
+        image = new ImageIcon("src/hotel.png");
+        label_image.setIcon(image);
     }
 
-    private void button_passengersActionPerformed() throws Exception {
+    private void button_passengersActionPerformed() {
         PassengersForm passengersForm = new PassengersForm();
         passengersForm.setVisible(true);
     }
@@ -25,14 +28,14 @@ public class MenuForm extends JFrame {
         employeesForm.setVisible(true);
     }
 
-    private void button_roomsActionPerformed() throws Exception {
-        RoomsForm roomsForm = new RoomsForm();
+    private void button_roomsActionPerformed() {
+        RoomsForm roomsForm = null;
+        try {
+            roomsForm = new RoomsForm();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         roomsForm.setVisible(true);
-    }
-
-    private void button_reservationActionPerformed() throws Exception {
-        ReservationForm reservationForm = new ReservationForm();
-        reservationForm.setVisible(true);
     }
 
     private void button_incomeActionPerformed() {
@@ -47,20 +50,18 @@ public class MenuForm extends JFrame {
         button_employees = new JButton();
         button_rooms = new JButton();
         button_income = new JButton();
+        label_image = new JLabel();
 
         //======== this ========
-        setTitle("Menu");
+        setTitle("    Menu");
         var contentPane = getContentPane();
 
         //---- button_passengers ----
         button_passengers.setText("Passsengers ");
         button_passengers.addActionListener(e -> {
-            try {
-                button_passengersActionPerformed();
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
-        });
+			button_passengersActionPerformed();
+			button_passengersActionPerformed();
+		});
 
         //---- button_employees ----
         button_employees.setText("Employees");
@@ -68,13 +69,7 @@ public class MenuForm extends JFrame {
 
         //---- button_rooms ----
         button_rooms.setText("Rooms");
-        button_rooms.addActionListener(e -> {
-            try {
-                button_roomsActionPerformed();
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
-        });
+        button_rooms.addActionListener(e -> button_roomsActionPerformed());
 
         //---- button_income ----
         button_income.setText("Hotel Income");
@@ -87,29 +82,32 @@ public class MenuForm extends JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(button_rooms, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(button_income, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(button_passengers, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(18, 18, 18)
-                            .addComponent(button_employees, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7))))
+                        .addComponent(button_rooms, GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                        .addComponent(button_passengers, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(button_employees, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button_income, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap())
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+                    .addGap(98, 98, 98))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
+                    .addComponent(label_image, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addGap(18, 18, 18)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(button_passengers, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                         .addComponent(button_employees, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(button_rooms, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(button_income, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(button_income, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button_rooms, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE))
+                    .addGap(19, 19, 19))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -122,5 +120,6 @@ public class MenuForm extends JFrame {
     private JButton button_employees;
     private JButton button_rooms;
     private JButton button_income;
+    private JLabel label_image;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
