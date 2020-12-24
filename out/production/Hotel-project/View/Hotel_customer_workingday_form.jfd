@@ -1,0 +1,66 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp panel1::l:::x, seq t {space ::14:x, comp panel2:::p::p, space :p:16:p}}"
+			"$verticalGroup": "par l {seq l {comp panel1:::p::p, space u:::p, comp panel2:::::x, space :p:12:p}}"
+		} ) {
+			name: "this"
+			"title": "Welcome"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:167:p, comp label2:::p::p, space :::x}}"
+				"$verticalGroup": "par l {seq l {space :p:28:p, comp label2:::p:31:p, space ::37:x}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 153, 0, 0, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Hotel Customers Registration Information"
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {seq l {space :p:30:p, comp button_show:::p:96:p, space :p:39:p, comp button_exit:::p:91:p}, seq l {space :p:14:p, par l {comp scrollPane1:::p:536:p, seq {comp label1:::p::p, space :p:40:p, comp textField_date:::p:127:p}}}}, space ::38:x}}"
+				"$verticalGroup": "par l {seq l {space :p:21:p, par b {comp label1::b:p:27:p, comp textField_date::b:p::p}, space :p:34:p, comp scrollPane1:::p:346:p, space s:::p, par b {comp button_show::b:p::p, comp button_exit::b:p::p}, space ::22:x}}"
+			} ) {
+				name: "panel2"
+				"background": sfield java.awt.Color darkGray
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "Enter your Date (like --> 2020/1/1)  = "
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField_date"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					add( new FormComponent( "javax.swing.JList" ) {
+						name: "list_names"
+						"background": sfield java.awt.Color lightGray
+						"foreground": new java.awt.Color( 0, 0, 0, 255 )
+						"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 5, false )
+					} )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_show"
+					"text": "Show"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_showActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_exit"
+					"text": "Exit"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_exitActionPerformed", false ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 620, 645 )
+		} )
+	}
+}

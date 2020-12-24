@@ -33,9 +33,9 @@ new FormModel {
 					name: "scrollPane1"
 					add( new FormComponent( "javax.swing.JList" ) {
 						name: "list1"
-						"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 2, false )
+						"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 3, false )
 						"background": sfield java.awt.Color darkGray
-						"foreground": new java.awt.Color( 0, 0, 0, 255 )
+						"foreground": sfield java.awt.Color white
 						"border": new javax.swing.border.TitledBorder( "List of payment" )
 					} )
 				} )

@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {comp button1::l:::x, seq {par l {comp button_customer_payment::l:p:551:p, comp button_payment_per_customer::l:p:551:p, comp button_hotel_working_day::l:p:557:p}, space :0:0:x}, comp button_hotel_income::t:::x}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp button1:::p:59:p, space :::p, comp button_customer_payment:::p:60:p, space :::p, comp button_payment_per_customer:::p:58:p, space :::p, comp button_hotel_working_day:::p:58:p, space :::p, comp button_hotel_income:::p:54:p, space :::p}}"
+			"$horizontalGroup": "par l {seq {par l {comp button_hote_customer::l:::x, seq {par l {comp button_customer_payment::l:p:551:p, comp button_payment_per_customer::l:p:551:p, comp button_hotel_working_day::l:p:557:p}, space :0:0:x}, comp button_hotel_income::t:::x}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp button_hote_customer:::p:59:p, space :::p, comp button_customer_payment:::p:60:p, space :::p, comp button_payment_per_customer:::p:58:p, space :::p, comp button_hotel_working_day:::p:58:p, space :::p, comp button_hotel_income:::p:54:p, space :::p}}"
 		} ) {
 			name: "this"
 			"title": "Hotel Income Option Menu"
@@ -34,9 +34,10 @@ new FormModel {
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_incomeActionPerformed", false ) )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button1"
+				name: "button_hote_customer"
 				"text": "     Hotel customers on hotel working days"
 				"font": #SwingDerivedFont0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hote_customerActionPerformed", false ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 30, 25 )

@@ -6,7 +6,7 @@ new FormModel {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 			"$layoutConstraints": "hidemode 3"
 			"$columnConstraints": "[753]"
-			"$rowConstraints": "[][][381]"
+			"$rowConstraints": "[][][500]"
 		} ) {
 			name: "this"
 			"background": new java.awt.Color( 0, 204, 153, 255 )
@@ -14,8 +14,8 @@ new FormModel {
 			"foreground": new java.awt.Color( 0, 0, 0, 255 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 				"$layoutConstraints": "hidemode 3"
-				"$columnConstraints": "[fill][][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
-				"$rowConstraints": "[][]"
+				"$columnConstraints": "[fill][][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+				"$rowConstraints": "[][][]"
 			} ) {
 				name: "panel2"
 				"background": new java.awt.Color( 204, 0, 0, 255 )
@@ -25,7 +25,12 @@ new FormModel {
 					"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 2, false )
 					"foreground": new javax.swing.plaf.ColorUIResource( 255, 255, 255 )
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-					"value": "cell 0 0 1 2"
+					"value": "cell 0 0 1 3"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image"
+				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+					"value": "cell 22 1 1 2"
 				} )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 0 0,growx"
@@ -33,7 +38,7 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 				"$layoutConstraints": "hidemode 3,align left top"
 				"$columnConstraints": "[230,fill][204,fill][fill][139,fill][230,fill]"
-				"$rowConstraints": "[45][35][36][35][34][48][38][48][48][][]"
+				"$rowConstraints": "[45][35][36][35][34][48][38][48][48][][31]"
 			} ) {
 				name: "panel1"
 				"background": new java.awt.Color( 51, 51, 51, 255 )
@@ -218,7 +223,7 @@ new FormModel {
 				"value": "cell 0 1 1 2"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 785, 640 )
+			"size": new java.awt.Dimension( 785, 655 )
 			"location": new java.awt.Point( 5, 5 )
 		} )
 	}

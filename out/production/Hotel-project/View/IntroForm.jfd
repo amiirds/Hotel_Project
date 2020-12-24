@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {par l:l::p {comp button_Reservation:::::x, comp button_login:::p:427:p}, seq l {comp label_time:::p:112:p, space ::221:x, comp label_date:::p:104:p}}, space :::p}}"
-			"$verticalGroup": "par l {seq t {par l {comp label_time:::p:48:p, comp label_date:::p:48:p}, space ::18:x, comp button_login:::p:101:p, space :p:12:p, comp button_Reservation:::p:107:p, space :p:20:p}}"
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq l {comp label_time:::p:112:p, space ::80:x, comp label_image:::p:123:p, space s:::p, comp label_date:::p:104:p}, comp button_Reservation::l:::x, comp button_login::l::437:x}, space :::p}}"
+			"$verticalGroup": "par l {seq t {par l {seq {par l {comp label_time:::p:48:p, comp label_date:::p:48:p}, space :0:70:x}, seq t {space :0:18:x, comp label_image:::p:100:p}}, space :p:29:p, comp button_login:::p:101:p, space s:::p, comp button_Reservation:::p:90:p, space :p:20:p}}"
 		} ) {
 			name: "this"
 			"title": "Welcome"
@@ -29,9 +29,12 @@ new FormModel {
 				"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label_image"
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 460, 330 )
+			"size": new java.awt.Dimension( 460, 400 )
 		} )
 	}
 }
