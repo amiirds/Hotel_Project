@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Locale;
 
@@ -165,15 +166,15 @@ public class ReservationForm extends JFrame {
 
         //======== panel2 ========
         {
-            panel2.setBackground(new Color(153, 0, 0));
-            panel2.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder (
-            new javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
-            , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
-            , new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 )
-            ,java . awt. Color .red ) ,panel2. getBorder () ) ); panel2. addPropertyChangeListener(
-            new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-            ) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
-            ;} } );
+            panel2.setBackground(new Color(72, 38, 72, 211));
+            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
+            new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion"
+            , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+            , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 )
+            , java. awt. Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+            ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
+            ; }} );
             panel2.setLayout(new MigLayout(
                 "hidemode 3",
                 // columns
@@ -203,8 +204,8 @@ public class ReservationForm extends JFrame {
             panel2.add(label_img, "cell 9 0 10 3");
 
             //---- label1 ----
-            label1.setText("Room ReservationMangment");
-            label1.setFont(label1.getFont().deriveFont(label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 2f));
+            label1.setText("Room Reservation management");
+            label1.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label1.setForeground(Color.white);
             panel2.add(label1, "cell 0 1");
         }
@@ -212,7 +213,7 @@ public class ReservationForm extends JFrame {
 
         //======== panel1 ========
         {
-            panel1.setBackground(Color.darkGray);
+            panel1.setBackground(new Color(255, 153, 153));
             panel1.setBorder(LineBorder.createBlackLineBorder());
             panel1.setForeground(Color.black);
             panel1.setFont(panel1.getFont().deriveFont(panel1.getFont().getSize() + 3f));
@@ -221,7 +222,7 @@ public class ReservationForm extends JFrame {
                 // columns
                 "[230,fill]" +
                 "[100,fill]" +
-                "[54,fill]" +
+                "[73,fill]" +
                 "[fill]" +
                 "[15,fill]" +
                 "[fill]" +
@@ -245,7 +246,7 @@ public class ReservationForm extends JFrame {
 
             //---- label2 ----
             label2.setText("FullName = ");
-            label2.setFont(label2.getFont().deriveFont(label2.getFont().getStyle() & ~Font.ITALIC, label2.getFont().getSize() + 3f));
+            label2.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label2.setForeground(Color.black);
             panel1.add(label2, "cell 0 0");
 
@@ -256,7 +257,7 @@ public class ReservationForm extends JFrame {
 
             //---- label3 ----
             label3.setText("Meli Code = ");
-            label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 3f));
+            label3.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label3.setForeground(Color.black);
             panel1.add(label3, "cell 0 1");
 
@@ -267,7 +268,7 @@ public class ReservationForm extends JFrame {
 
             //---- label4 ----
             label4.setText("Phone Number = ");
-            label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 3f));
+            label4.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label4.setForeground(Color.black);
             panel1.add(label4, "cell 0 2,aligny center,growy 0");
 
@@ -279,7 +280,7 @@ public class ReservationForm extends JFrame {
             //---- label5 ----
             label5.setText("Staying time(Nights) =");
             label5.setForeground(Color.black);
-            label5.setFont(label5.getFont().deriveFont(label5.getFont().getSize() + 3f));
+            label5.setFont(new Font("Noteworthy", Font.BOLD, 17));
             panel1.add(label5, "cell 0 3");
 
             //---- textField_stayingtime ----
@@ -288,7 +289,7 @@ public class ReservationForm extends JFrame {
             panel1.add(textField_stayingtime, "cell 1 3 2 1");
 
             //---- label7 ----
-            label7.setFont(label7.getFont().deriveFont(label7.getFont().getSize() + 3f));
+            label7.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label7.setForeground(Color.black);
             label7.setText("Date of reserve =");
             panel1.add(label7, "cell 0 4");
@@ -300,7 +301,7 @@ public class ReservationForm extends JFrame {
 
             //---- label6 ----
             label6.setText("Time of Reserve =");
-            label6.setFont(label6.getFont().deriveFont(label6.getFont().getSize() + 3f));
+            label6.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label6.setForeground(Color.black);
             panel1.add(label6, "cell 0 5");
 
@@ -312,13 +313,13 @@ public class ReservationForm extends JFrame {
             //---- label9 ----
             label9.setText("Room number =");
             label9.setForeground(Color.black);
-            label9.setFont(label9.getFont().deriveFont(label9.getFont().getSize() + 3f));
+            label9.setFont(new Font("Noteworthy", Font.BOLD, 17));
             panel1.add(label9, "cell 0 6");
             panel1.add(comboBox_roomnumber, "cell 1 6 2 1");
 
             //---- label8 ----
             label8.setText("First Payment =");
-            label8.setFont(label8.getFont().deriveFont(label8.getFont().getSize() + 3f));
+            label8.setFont(new Font("Noteworthy", Font.BOLD, 17));
             label8.setForeground(Color.black);
             panel1.add(label8, "cell 0 7");
 
@@ -340,7 +341,7 @@ public class ReservationForm extends JFrame {
             //---- button_delete ----
             button_delete.setText("Delete");
             button_delete.addActionListener(e -> button_deleteActionPerformed());
-            panel1.add(button_delete, "cell 2 9 3 1");
+            panel1.add(button_delete, "cell 2 9 4 1");
         }
         contentPane.add(panel1, "cell 0 1 1 2");
         pack();

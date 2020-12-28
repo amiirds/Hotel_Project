@@ -4,38 +4,66 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :::p, par l {comp button_rooms::::183:x, comp button_passengers:::::x}, space :::p, par l {comp button_employees::t:p:177:p, comp button_income::t:p:177:p}, space :::p}, seq t {space :::x, comp label_image:::p:132:p, space :p:98:p}}"
-			"$verticalGroup": "par l {seq t {space :::p, comp label_image::::101:x, space :p:18:p, par b {comp button_passengers::b:p:72:p, comp button_employees::b:p:72:p}, space :p:18:p, par b {comp button_income::b:p:70:p, comp button_rooms::b:p:72:p}, space :p:19:p}}"
+			"$horizontalGroup": "par l {seq t {comp panel1:::p::p, space :::p, comp panel2:::::x}}"
+			"$verticalGroup": "par l {comp panel1::l:::x, comp panel2::l:::x}"
 		} ) {
 			name: "this"
 			"title": "    Menu"
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_passengers"
-				"text": "Passsengers "
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_passengersActionPerformed", false ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_passengersActionPerformed", false ) )
+			"background": new java.awt.Color( 0, 153, 153, 255 )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:26:p, par t {comp button_rooms:::p:285:p, comp button_employees:::p:285:p, comp button_passengers:::p:285:p, comp button_income::t:p:285:p}, space ::42:x}}"
+				"$verticalGroup": "par l {seq l {space ::27:x, comp button_passengers:::p:70:p, space :p:18:p, comp button_employees:::p:70:p, space u:::p, comp button_income:::p:70:p, space u:::p, comp button_rooms:::p:70:p, space :p:12:p}}"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 255, 153, 153, 255 )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_rooms"
+					"text": "Rooms"
+					"font": &Font0 new java.awt.Font( "Noteworthy", 1, 12 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_roomsActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_passengers"
+					"text": "Passsengers "
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_passengersActionPerformed", false ) )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_passengersActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_employees"
+					"text": "Employees"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_employeesActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_income"
+					"text": "Hotel Income"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_incomeActionPerformed", false ) )
+				} )
 			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_employees"
-				"text": "Employees"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_employeesActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_rooms"
-				"text": "Rooms"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_roomsActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_income"
-				"text": "Hotel Income"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_incomeActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label_image"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {comp label_image3::l:p:67:p, comp label_image4::l:p:67:p, comp label_image2::l:p:67:p, comp label_image::l:p:67:p}, space ::16:x}}"
+				"$verticalGroup": "par l {seq l {space ::31:x, comp label_image:::p:53:p, space :p:26:p, comp label_image2:::p:53:p, space :p:28:p, comp label_image3:::p:53:p, space :p:34:p, comp label_image4:::p:53:p, space :p:30:p}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 72, 38, 72, 211 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image2"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image3"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image4"
+				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 380, 330 )
+			"location": new java.awt.Point( 80, 35 )
+			"size": new java.awt.Dimension( 450, 385 )
 		} )
 	}
 }

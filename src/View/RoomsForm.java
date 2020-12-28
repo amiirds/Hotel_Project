@@ -29,7 +29,6 @@ public class RoomsForm extends JFrame {
         image = new ImageIcon("src/living-room-2.png");
         label_image.setIcon(image);
     }
-
     private void buttonsubmitActionPerformed() {
         try {
             Rooms_Entity rooms_entity = new Rooms_Entity();
@@ -64,11 +63,12 @@ public class RoomsForm extends JFrame {
             if (checkBox_yes.isSelected())
                 rooms_entity.setStatus(checkBox_yes.getText());
             Rooms_Service rooms_service = new Rooms_Service();
-            rooms_service.insert(rooms_entity);
-            JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                rooms_service.insert(rooms_entity);
+
+                JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Failed to saved \n You may selected repeated room No \n Try Again" ,"Error",2);
+            JOptionPane.showMessageDialog(null,"Failed to saved \n 1-You may selected repeated room No \n 2-Or the status of reserved is empty\nTry Again" ,"Error",2);
         }
     }
 
@@ -130,7 +130,7 @@ public class RoomsForm extends JFrame {
 
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Failed to Delete " + e.getStackTrace(), "Error", 2);
+            JOptionPane.showMessageDialog(null, "Failed to Delete ", "Error", 2);
         }
     }
 
@@ -268,12 +268,14 @@ public class RoomsForm extends JFrame {
 
             //======== panel2 ========
             {
-                panel2.setBackground(new Color(204, 0, 0));
-                panel2.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
-                ,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-                ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
-                panel2. getBorder()));panel2. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-                ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
+                panel2.setBackground(new Color(72, 38, 72, 211));
+                panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
+                . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder
+                . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .
+                awt .Font .BOLD ,12 ), java. awt. Color. red) ,panel2. getBorder( )) )
+                ; panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+                ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
+                ;
                 panel2.setLayout(new MigLayout(
                     "hidemode 3",
                     // columns
@@ -307,7 +309,7 @@ public class RoomsForm extends JFrame {
 
                 //---- label1 ----
                 label1.setText("Rooms Mangment");
-                label1.setFont(label1.getFont().deriveFont(label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 2f));
+                label1.setFont(new Font("Noteworthy", Font.BOLD, 19));
                 label1.setForeground(Color.white);
                 panel2.add(label1, "cell 0 0 1 3");
                 panel2.add(label_image, "cell 22 1 1 2");
@@ -316,7 +318,7 @@ public class RoomsForm extends JFrame {
 
             //======== panel1 ========
             {
-                panel1.setBackground(new Color(51, 51, 51));
+                panel1.setBackground(new Color(255, 153, 153));
                 panel1.setBorder(LineBorder.createBlackLineBorder());
                 panel1.setLayout(new MigLayout(
                     "hidemode 3,align left top",
@@ -341,15 +343,15 @@ public class RoomsForm extends JFrame {
 
                 //---- labelnumber ----
                 labelnumber.setText("Room Number =");
-                labelnumber.setFont(labelnumber.getFont().deriveFont(labelnumber.getFont().getSize() + 3f));
-                labelnumber.setForeground(Color.black);
+                labelnumber.setFont(new Font("Noteworthy", Font.PLAIN, 21));
+                labelnumber.setForeground(Color.white);
                 panel1.add(labelnumber, "cell 0 0");
                 panel1.add(comboBoxroomnumber, "cell 1 0");
 
                 //---- label10 ----
                 label10.setText("Type Of Room = ");
-                label10.setFont(label10.getFont().deriveFont(label10.getFont().getSize() + 3f));
-                label10.setForeground(Color.black);
+                label10.setFont(new Font("Noteworthy", Font.PLAIN, 21));
+                label10.setForeground(Color.white);
                 panel1.add(label10, "cell 0 1");
 
                 //---- checkBox_vip ----
@@ -364,22 +366,22 @@ public class RoomsForm extends JFrame {
 
                 //---- label4 ----
                 label4.setText("Number Of Vip Rooms = ");
-                label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 3f));
-                label4.setForeground(Color.black);
+                label4.setFont(new Font("Noteworthy", Font.PLAIN, 21));
+                label4.setForeground(Color.white);
                 panel1.add(label4, "cell 0 2,aligny center,growy 0");
                 panel1.add(comboBox_numbervip, "cell 1 2");
 
                 //---- label5 ----
                 label5.setText("Number Of Ordinary Rooms =");
-                label5.setForeground(Color.black);
-                label5.setFont(label5.getFont().deriveFont(label5.getFont().getSize() + 3f));
+                label5.setForeground(Color.white);
+                label5.setFont(new Font("Noteworthy", Font.PLAIN, 21));
                 panel1.add(label5, "cell 0 3");
                 panel1.add(comboBox_numberordinary, "cell 1 3");
 
                 //---- label6 ----
                 label6.setText("Normal Room Facilities = ");
-                label6.setFont(label6.getFont().deriveFont(label6.getFont().getSize() + 3f));
-                label6.setForeground(Color.black);
+                label6.setFont(new Font("Noteworthy", Font.PLAIN, 21));
+                label6.setForeground(Color.white);
                 panel1.add(label6, "cell 0 4");
 
                 //---- checkBox_singlebed ----
@@ -404,8 +406,8 @@ public class RoomsForm extends JFrame {
 
                 //---- label9 ----
                 label9.setText("Special Room Facilities = ");
-                label9.setFont(label9.getFont().deriveFont(label9.getFont().getSize() + 3f));
-                label9.setForeground(Color.black);
+                label9.setFont(new Font("Noteworthy", Font.PLAIN, 21));
+                label9.setForeground(Color.white);
                 panel1.add(label9, "cell 0 5");
 
                 //---- checkBox_TV ----
@@ -430,8 +432,8 @@ public class RoomsForm extends JFrame {
 
                 //---- label2 ----
                 label2.setText("Reservation =");
-                label2.setForeground(Color.black);
-                label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 3f));
+                label2.setForeground(Color.white);
+                label2.setFont(new Font("Noteworthy", Font.PLAIN, 21));
                 panel1.add(label2, "cell 0 6");
 
                 //---- checkBox_yes ----

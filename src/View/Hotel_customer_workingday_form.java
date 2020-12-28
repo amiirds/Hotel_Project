@@ -79,18 +79,19 @@ public class Hotel_customer_workingday_form extends JFrame {
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(153, 0, 0));
-            panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-            .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax
-            . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,
-            12 ) ,java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans
-            .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e.
-            getPropertyName () ) )throw new RuntimeException( ) ;} } );
+            panel1.setBackground(new Color(72, 38, 72, 211));
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+            javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax
+            . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+            .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+            . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans.
+            PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
+            equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- label2 ----
             label2.setText("Hotel Customers Registration Information");
-            label2.setForeground(Color.black);
-            label2.setFont(label2.getFont().deriveFont(label2.getFont().getSize() + 3f));
+            label2.setForeground(Color.white);
+            label2.setFont(new Font("Noteworthy", Font.PLAIN, 20));
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -99,7 +100,7 @@ public class Hotel_customer_workingday_form extends JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(label2)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(127, Short.MAX_VALUE))
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -112,12 +113,12 @@ public class Hotel_customer_workingday_form extends JFrame {
 
         //======== panel2 ========
         {
-            panel2.setBackground(Color.darkGray);
+            panel2.setBackground(new Color(255, 153, 153));
 
             //---- label1 ----
             label1.setText("Enter your Date (like --> 2020/1/1)  = ");
             label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 3f));
-            label1.setForeground(Color.black);
+            label1.setForeground(Color.white);
 
             //---- textField_date ----
             textField_date.setFont(textField_date.getFont().deriveFont(textField_date.getFont().getSize() + 3f));
@@ -126,8 +127,8 @@ public class Hotel_customer_workingday_form extends JFrame {
             {
 
                 //---- list_names ----
-                list_names.setBackground(Color.lightGray);
-                list_names.setForeground(Color.black);
+                list_names.setBackground(new Color(255, 153, 153));
+                list_names.setForeground(Color.white);
                 list_names.setFont(list_names.getFont().deriveFont(list_names.getFont().getStyle() | Font.BOLD, list_names.getFont().getSize() + 5f));
                 scrollPane1.setViewportView(list_names);
             }
@@ -159,7 +160,7 @@ public class Hotel_customer_workingday_form extends JFrame {
                                         .addComponent(label1)
                                         .addGap(40, 40, 40)
                                         .addComponent(textField_date, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(38, Short.MAX_VALUE))
+                        .addContainerGap(68, Short.MAX_VALUE))
             );
             panel2Layout.setVerticalGroup(
                 panel2Layout.createParallelGroup()
@@ -174,7 +175,7 @@ public class Hotel_customer_workingday_form extends JFrame {
                         .addGroup(panel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(button_show)
                             .addComponent(button_exit))
-                        .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap(40, Short.MAX_VALUE))
             );
         }
 
@@ -183,18 +184,14 @@ public class Hotel_customer_workingday_form extends JFrame {
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(14, Short.MAX_VALUE)
-                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(16, 16, 16))
+                .addComponent(panel2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(12, 12, 12))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());

@@ -4,37 +4,53 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq l {comp label_time:::p:112:p, space ::80:x, comp label_image:::p:123:p, space s:::p, comp label_date:::p:104:p}, comp button_Reservation::l:::x, comp button_login::l::437:x}, space :::p}}"
-			"$verticalGroup": "par l {seq t {par l {seq {par l {comp label_time:::p:48:p, comp label_date:::p:48:p}, space :0:70:x}, seq t {space :0:18:x, comp label_image:::p:100:p}}, space :p:29:p, comp button_login:::p:101:p, space s:::p, comp button_Reservation:::p:90:p, space :p:20:p}}"
+			"$horizontalGroup": "par l {comp panel1:::::x, comp panel2::l:::x}"
+			"$verticalGroup": "par l {seq l {comp panel1:::p::p, space :::p, comp panel2:::::x}}"
 		} ) {
 			name: "this"
 			"title": "Welcome"
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_login"
-				"text": "Login  (Managers & Emplooyes)"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_loginActionPerformed", false ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {comp label_time:::p:112:p, space :p:52:p, comp label_image:::p:109:p, space ::55:x, comp label_date:::p:104:p, space :::p}}"
+				"$verticalGroup": "par l {seq {par l {comp label_time:::p:34:p, comp label_date:::p:34:p}, space :0:93:x}, seq l {space :p:18:p, comp label_image:::p:90:p, space ::19:x}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 55, 121, 165, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_time"
+					"foreground": sfield java.awt.Color white
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_date"
+					"foreground": sfield java.awt.Color white
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				} )
 			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_Reservation"
-				"text": "Reservation"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_ReservationActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label_time"
-				"foreground": new java.awt.Color( 0, 0, 0, 255 )
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label_date"
-				"foreground": new java.awt.Color( 0, 0, 0, 255 )
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label_image"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::23:x, par t:::p {comp button_login::::389:x, comp button_Reservation::::389:x}, space :p:26:p}}"
+				"$verticalGroup": "par l {seq t {space ::30:x, comp button_login:::p:87:p, space s:::p, comp button_Reservation:::p:87:p, space :p:21:p}}"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 0, 51, 102, 255 )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_login"
+					"text": "Login  (Managers & Emplooyes)"
+					"font": &Font0 new java.awt.Font( "Noteworthy", 1, 16 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_loginActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_Reservation"
+					"text": "Reservation"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_ReservationActionPerformed", false ) )
+				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 460, 400 )
+			"location": new java.awt.Point( 75, 5 )
+			"size": new java.awt.Dimension( 440, 400 )
 		} )
 	}
 }

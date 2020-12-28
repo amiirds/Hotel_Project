@@ -4,56 +4,64 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {comp panel2::t:::x, seq t {space :::p, comp panel1:::::x, space :::p}}"
-			"$verticalGroup": "par l {seq t {space :::p, comp panel2:::p::p, space :::p, comp panel1:::p::p, space ::23:x}}"
+			"$horizontalGroup": "par l {seq t {space :::p, par t {comp panel2:::::x, comp panel1:::::x}, space :::p}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp panel2:::p::p, space :::p, comp panel1:::p::p, space ::12:x}}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {comp buttonsubmit:::p:176:p, space u:::p, comp button_edit:::p:135:p, space s:::p, comp button_delete:::p::p, space :0:0:x}, seq t {space :::p, par t {seq t {par l {comp label10::l:p:116:p, comp label9:::p:212:p, comp label7:::p:190:p, comp label8:::p::p, comp label6::l:p:190:p}, space :::x, comp label_totalpay:::p::p, space :p:195:p}, seq t {space :0:0:x, comp radioButton_vip:::p:73:p, space s:::p, comp radioButton_normal:::p::p, space :p:27:p}, seq t {par l {comp label5:::p::p, comp label3::l:p:101:p, comp label::l:p:101:p, comp label4:::p:212:p}, space :p:20:p, par l {seq l {space ::180:x, par l {comp textField_fullname::l:p:147:p, par t:l::p {comp comboBox_numberofpassengers::l::139:x, comp textField_durationstay::l::139:x, comp textField_phonenumber::l::139:x, comp textField_codemeli::l::139:x, comp textField_firstpay::l::139:x}}}, seq l {space :p:84:p, comp radioButton_iran:::p:83:p, space :p:31:p, comp radioButton_foreigner:::p::p}}}}, space :p:23:p, comp button_fullpayment:::p::p, space :::p}}"
-				"$verticalGroup": "par l {seq l {space :::p, par b {comp textField_fullname::b:p::p, comp label::b:p:43:p}, space :::p, par b {comp radioButton_foreigner::b:p::p, comp label3::b:p:43:p, comp radioButton_iran::b:p::p}, space :::p, par b {comp textField_codemeli::b:p::p, comp label4::b:p:43:p}, space :::p, par b {comp textField_phonenumber::b:p::p, comp label5::b:p:43:p}, space :p:7:p, par b {comp label6::b:p:43:p, comp comboBox_numberofpassengers::b:p::p}, space u:::p, par l {seq {comp radioButton_vip:::p::p, space ::241:x}, seq {par l {seq {comp label10:::p::p, space :0:0:x}, seq t {space :0:0:x, comp radioButton_normal:::p::p}}, par t {seq t {comp label7:::p:43:p, space :::p}, seq t {comp textField_durationstay:::p:30:p, space :p:24:p}, seq l {space :p:9:p, comp button_fullpayment:::p::p, space :::p}}, par b {comp label8::b:p:43:p, comp textField_firstpay::b:p::p}, space :::p, par b {comp label9::b:p:43:p, comp label_totalpay::b:p::p}, space ::33:x, par l {comp buttonsubmit:::p::p, par b {comp button_edit::b:p::p, comp button_delete::b:p::p}}, space :p:31:p}}}}"
+				"$horizontalGroup": "par l {seq {space :p:11:p, comp buttonsubmit:::p:159:p, space s:::p, comp button_edit:::p:135:p, space s:::p, comp button_delete:::p:114:p, space :0:301:x}, seq t {space :::p, par t {seq t {par l {comp label10::l:p:116:p, comp label9:::p:212:p, comp label7:::p:190:p, comp label8:::p::p, comp label6::l:p:190:p}, space :::x, comp label_totalpay:::p::p, space :p:216:p}, seq t {par l {comp label5:::p::p, comp label3::l:p:101:p, comp label::l:p:101:p, comp label4:::p:212:p}, space ::202:x, par l:::p {seq {comp radioButton_vip:::p:73:p, space s:::p, comp radioButton_normal:::p::p}, comp textField_durationstay::l:::x, comp textField_firstpay::l:::x, comp textField_fullname::l:::x, seq t {comp radioButton_iran:::::x, space :::p, comp radioButton_foreigner:::p::p}, comp textField_phonenumber::t:::x, comp textField_codemeli::t:::x}}, seq {space :0:414:x, comp comboBox_numberofpassengers:::p:168:p}}, space :p:14:p, comp button_fullpayment:::p:148:p, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :::p, par b {comp label::b:p:43:p, comp textField_fullname::b:p::p}, space :::p, par b {comp label3::b:p:43:p, comp radioButton_foreigner::b:p::p, comp radioButton_iran::b:p::p}, space :::p, par b {comp label4::b:p:43:p, comp textField_codemeli::b:p::p}, space :::p, par b {comp label5::b:p:43:p, comp textField_phonenumber::b:p::p}, space :p:7:p, par b {comp label6::b:p:43:p, comp comboBox_numberofpassengers::b:p::p}, space u:::p, par l {seq {comp label10:::p::p, space :0:0:x}, seq l {space :0:0:x, par b {comp radioButton_normal::b:p::p, comp radioButton_vip::b:p::p}}}, space :p:5:p, par t {seq t {comp label7:::p:43:p, space :::p}, seq {par b {comp button_fullpayment::b:p::p, comp textField_durationstay::b:p:30:p}, space :p:15:p}}, par b {comp label8::b:p:43:p, comp textField_firstpay::b:p::p}, space :::p, par b {comp label9::b:p:43:p, comp label_totalpay::b:p::p}, space ::33:x, par b {comp buttonsubmit::b:p::p, comp button_edit::b:p::p, comp button_delete::b:p::p}, space :p:31:p}}"
 			} ) {
 				name: "panel1"
-				"background": sfield java.awt.Color darkGray
-				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				"background": new java.awt.Color( 255, 153, 153, 255 )
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label"
 					"text": "Fullname ="
-					"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 2, false )
+					"font": &Font0 new java.awt.Font( "Noteworthy", 0, 20 )
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label3"
 					"text": "Nationality ="
-					"font": #SwingDerivedFont1
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label4"
 					"text": "Meli code or passport No="
-					"font": #SwingDerivedFont1
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label5"
 					"text": "Phone Number ="
-					"font": #SwingDerivedFont1
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label6"
 					"text": "Number of passengers ="
-					"font": #SwingDerivedFont1
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label7"
 					"text": "duration of stay (Night) ="
-					"font": #SwingDerivedFont1
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label8"
 					"text": "First payment amount (Tooman) ="
-					"font": #SwingDerivedFont1
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label9"
 					"text": "Total payment (Tooman) ="
-					"font": #SwingDerivedFont0
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
 					name: "textField_fullname"
@@ -86,11 +94,13 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JRadioButton" ) {
 					name: "radioButton_iran"
 					"text": "Iranian"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, -2, false )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "radioButton_iranActionPerformed", false ) )
 				} )
 				add( new FormComponent( "javax.swing.JRadioButton" ) {
 					name: "radioButton_foreigner"
 					"text": "Foreigner"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, -2, false )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "radioButton_foreignerActionPerformed", false ) )
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
@@ -99,7 +109,8 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label10"
 					"text": "VIP/NORMAL ="
-					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 2, false )
+					"font": #Font0
+					"foreground": sfield java.awt.Color white
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label_totalpay"
@@ -124,15 +135,18 @@ new FormModel {
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {space :::p, comp label1:::p:202:p, space ::560:x}}"
-				"$verticalGroup": "par l {seq l {space ::45:x, comp label1:::p:42:p}}"
+				"$horizontalGroup": "par l {seq l {space :::p, comp label1:::p:202:p, space ::396:x, comp label_image:::p:130:p, space :p:22:p}}"
+				"$verticalGroup": "par l {seq l {space :p:16:p, par t {comp label1:::p:42:p, comp label_image:::p:49:p}, space :0:22:x}}"
 			} ) {
 				name: "panel2"
-				"background": new java.awt.Color( 153, 0, 0, 255 )
+				"background": new java.awt.Color( 72, 38, 72, 211 )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label1"
 					"text": "Client Managment"
 					"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 3, false )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image"
 				} )
 			} )
 		}, new FormLayoutConstraints( null ) {

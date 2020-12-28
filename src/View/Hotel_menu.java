@@ -46,75 +46,113 @@ public class Hotel_menu extends JFrame {
         Hotel_customer_workingday_form hotelCustomerWorkingdayForm = new Hotel_customer_workingday_form();
         hotelCustomerWorkingdayForm.setVisible(true);
     }
+    public void close() {
+        if (button_return.isSelected()) {
+            Hotel_menu hotel_menu = new Hotel_menu();
+            hotel_menu.dispose();
+        }
+    }
+    private void button_returnActionPerformed() {
+        dispose();
+    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
+        panel1 = new JPanel();
+        button_hotel_customer = new JButton();
         button_customer_payment = new JButton();
         button_payment_per_customer = new JButton();
         button_hotel_working_day = new JButton();
         button_hotel_income = new JButton();
-        button_hote_customer = new JButton();
+        button_return = new JButton();
 
         //======== this ========
         setTitle("Hotel Income Option Menu");
         var contentPane = getContentPane();
 
-        //---- button_customer_payment ----
-        button_customer_payment.setText("       Show  Customer payment");
-        button_customer_payment.setFont(button_customer_payment.getFont().deriveFont(button_customer_payment.getFont().getStyle() & ~Font.BOLD, button_customer_payment.getFont().getSize() + 3f));
-        button_customer_payment.addActionListener(e -> button_customer_paymentActionPerformed());
+        //======== panel1 ========
+        {
+            panel1.setBackground(new Color(153, 153, 255));
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
+            . EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax
+            . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,
+            12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans
+            . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .
+            getPropertyName () )) throw new RuntimeException( ); }} );
 
-        //---- button_payment_per_customer ----
-        button_payment_per_customer.setText("    Payments per customer");
-        button_payment_per_customer.setFont(button_payment_per_customer.getFont().deriveFont(button_payment_per_customer.getFont().getStyle() & ~Font.BOLD, button_payment_per_customer.getFont().getSize() + 3f));
-        button_payment_per_customer.addActionListener(e -> button_payment_per_customerActionPerformed());
+            //---- button_hotel_customer ----
+            button_hotel_customer.setText("     Hotel customers on hotel working days");
+            button_hotel_customer.setFont(new Font("Noteworthy", Font.PLAIN, 15));
+            button_hotel_customer.addActionListener(e -> button_hote_customerActionPerformed());
 
-        //---- button_hotel_working_day ----
-        button_hotel_working_day.setText("    Hotel working day");
-        button_hotel_working_day.setFont(button_hotel_working_day.getFont().deriveFont(button_hotel_working_day.getFont().getStyle() & ~Font.BOLD, button_hotel_working_day.getFont().getSize() + 3f));
-        button_hotel_working_day.addActionListener(e -> button_hotel_working_dayActionPerformed());
+            //---- button_customer_payment ----
+            button_customer_payment.setText("       Show  Customer payment");
+            button_customer_payment.setFont(new Font("Noteworthy", Font.PLAIN, 15));
+            button_customer_payment.addActionListener(e -> button_customer_paymentActionPerformed());
 
-        //---- button_hotel_income ----
-        button_hotel_income.setText("    Hotel Income ");
-        button_hotel_income.setFont(button_hotel_income.getFont().deriveFont(button_hotel_income.getFont().getStyle() & ~Font.BOLD, button_hotel_income.getFont().getSize() + 3f));
-        button_hotel_income.addActionListener(e -> button_hotel_incomeActionPerformed());
+            //---- button_payment_per_customer ----
+            button_payment_per_customer.setText("    Payments per customer");
+            button_payment_per_customer.setFont(new Font("Noteworthy", Font.PLAIN, 15));
+            button_payment_per_customer.addActionListener(e -> button_payment_per_customerActionPerformed());
 
-        //---- button_hote_customer ----
-        button_hote_customer.setText("     Hotel customers on hotel working days");
-        button_hote_customer.setFont(button_hote_customer.getFont().deriveFont(button_hote_customer.getFont().getStyle() & ~Font.BOLD, button_hote_customer.getFont().getSize() + 3f));
-        button_hote_customer.addActionListener(e -> button_hote_customerActionPerformed());
+            //---- button_hotel_working_day ----
+            button_hotel_working_day.setText("    Hotel working day");
+            button_hotel_working_day.setFont(new Font("Noteworthy", Font.PLAIN, 15));
+            button_hotel_working_day.addActionListener(e -> button_hotel_working_dayActionPerformed());
+
+            //---- button_hotel_income ----
+            button_hotel_income.setText("    Hotel Income ");
+            button_hotel_income.setFont(new Font("Noteworthy", Font.PLAIN, 15));
+            button_hotel_income.addActionListener(e -> button_hotel_incomeActionPerformed());
+
+            //---- button_return ----
+            button_return.setText("Return");
+            button_return.setFont(new Font("Noteworthy", Font.PLAIN, 15));
+            button_return.addActionListener(e -> button_returnActionPerformed());
+
+            GroupLayout panel1Layout = new GroupLayout(panel1);
+            panel1.setLayout(panel1Layout);
+            panel1Layout.setHorizontalGroup(
+                panel1Layout.createParallelGroup()
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup()
+                            .addComponent(button_hotel_customer, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_customer_payment, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_payment_per_customer, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_hotel_working_day, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_hotel_income, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_return, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+            );
+            panel1Layout.setVerticalGroup(
+                panel1Layout.createParallelGroup()
+                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap(10, Short.MAX_VALUE)
+                        .addComponent(button_hotel_customer, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(button_customer_payment, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(button_payment_per_customer, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(button_hotel_working_day, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(button_hotel_income, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(button_return, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+            );
+        }
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(button_hote_customer, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGroup(contentPaneLayout.createParallelGroup()
-                                .addComponent(button_customer_payment, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(button_payment_per_customer, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(button_hotel_working_day, GroupLayout.PREFERRED_SIZE, 557, GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addComponent(button_hotel_income, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap())
+                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(button_hote_customer, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(button_customer_payment, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(button_payment_per_customer, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(button_hotel_working_day, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(button_hotel_income, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
+                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -123,10 +161,12 @@ public class Hotel_menu extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
+    private JPanel panel1;
+    private JButton button_hotel_customer;
     private JButton button_customer_payment;
     private JButton button_payment_per_customer;
     private JButton button_hotel_working_day;
     private JButton button_hotel_income;
-    private JButton button_hote_customer;
+    private JButton button_return;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

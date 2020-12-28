@@ -17,6 +17,8 @@ import Model.Service.Passengers_service;
 
 public class PassengersForm extends JFrame {
     long room_payment = 0;
+    private ImageIcon imageIcon ;
+    private ImageIcon imageIcon2 ;
     public PassengersForm() {
         
         Passengers_Repo passengers_repo;
@@ -26,6 +28,10 @@ public class PassengersForm extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        imageIcon = new ImageIcon("src/registration.png");
+        label_image.setIcon(imageIcon);
+        imageIcon2 = new ImageIcon("src/Error.png");
+
     }
 
     private void buttonsubmitActionPerformed() {
@@ -33,7 +39,6 @@ public class PassengersForm extends JFrame {
             Passengers_Entity passengers_entity = new Passengers_Entity();
             passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
             passengers_entity.setFullname(textField_fullname.getText());
-            passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
             passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex()+1)));
             passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
             if (radioButton_iran.isSelected()){
@@ -42,13 +47,24 @@ public class PassengersForm extends JFrame {
             else {
                 passengers_entity.setNationality(radioButton_foreigner.getText());
             }
+
             passengers_entity.setPhone_number(Long.parseLong(textField_phonenumber.getText()));
             passengers_entity.setTotal_payment(Long.parseLong(label_totalpay.getText()));
             Passengers_service passengers_service = new Passengers_service();
-            passengers_service.insert(passengers_entity);
-            JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+            if (Long.parseLong(textField_firstpay.getText())<20000){
+                JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
+            }
+            else {
+                passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
+                passengers_service.insert(passengers_entity);
+                JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Failed to saved " + e.getStackTrace(),"Error",2);
+            if (Long.parseLong(textField_firstpay.getText())<20000){
+                JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
+            }
+            else
+            JOptionPane.showMessageDialog(null,"Failed to saved ","Error",2);
         }
     }
 
@@ -57,7 +73,6 @@ public class PassengersForm extends JFrame {
             Passengers_Entity passengers_entity = new Passengers_Entity();
             passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
             passengers_entity.setFullname(textField_fullname.getText());
-            passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
             passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex()+1)));
             passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
             if (radioButton_iran.isSelected()){
@@ -69,10 +84,21 @@ public class PassengersForm extends JFrame {
             passengers_entity.setPhone_number(Long.parseLong(textField_phonenumber.getText()));
             passengers_entity.setTotal_payment(Long.parseLong(label_totalpay.getText()));
             Passengers_service passengers_service = new Passengers_service();
-            passengers_service.update(passengers_entity);
-            JOptionPane.showMessageDialog(null, "Successfully edit", "Success", 1);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Failed to edit \n Code melli and other text field mustn't be Empty ","Error",2);
+            if (Long.parseLong(textField_firstpay.getText())<20000){
+                JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
+            }
+            else {
+                passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
+                passengers_service.update(passengers_entity);
+                JOptionPane.showMessageDialog(null, "Successfully edit", "Success", 1);
+            }
+        }
+        catch (Exception e) {
+            if (Long.parseLong(textField_firstpay.getText())<20000){
+                JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
+            }
+            else
+                JOptionPane.showMessageDialog(null,"Failed to edit \n Code melli and other text field mustn't be Empty ","Error",2);
         }
     }
 
@@ -163,52 +189,62 @@ public class PassengersForm extends JFrame {
         comboBox_numberofpassengers = new JComboBox(number);
         panel2 = new JPanel();
         label1 = new JLabel();
+        label_image = new JLabel();
 
         //======== this ========
         var contentPane = getContentPane();
 
         //======== panel1 ========
         {
-            panel1.setBackground(Color.darkGray);
+            panel1.setBackground(new Color(255, 153, 153));
             panel1.setFont(panel1.getFont().deriveFont(panel1.getFont().getSize() + 3f));
-            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
-            EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing
-            . border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ),
-            java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () ))
-            throw new RuntimeException( ); }} );
+            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
+            .border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder
+            .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.
+            awt.Font.BOLD,12),java.awt.Color.red),panel1. getBorder()))
+            ;panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+            ){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}})
+            ;
 
             //---- label ----
             label.setText("Fullname =");
-            label.setFont(label.getFont().deriveFont(label.getFont().getSize() + 2f));
+            label.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label.setForeground(Color.white);
 
             //---- label3 ----
             label3.setText("Nationality =");
-            label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 2f));
+            label3.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label3.setForeground(Color.white);
 
             //---- label4 ----
             label4.setText("Meli code or passport No=");
-            label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 2f));
+            label4.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label4.setForeground(Color.white);
 
             //---- label5 ----
             label5.setText("Phone Number =");
-            label5.setFont(label5.getFont().deriveFont(label5.getFont().getSize() + 2f));
+            label5.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label5.setForeground(Color.white);
 
             //---- label6 ----
             label6.setText("Number of passengers =");
-            label6.setFont(label6.getFont().deriveFont(label6.getFont().getSize() + 2f));
+            label6.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label6.setForeground(Color.white);
 
             //---- label7 ----
             label7.setText("duration of stay (Night) =");
-            label7.setFont(label7.getFont().deriveFont(label7.getFont().getSize() + 2f));
+            label7.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label7.setForeground(Color.white);
 
             //---- label8 ----
             label8.setText("First payment amount (Tooman) =");
-            label8.setFont(label8.getFont().deriveFont(label8.getFont().getSize() + 2f));
+            label8.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label8.setForeground(Color.white);
 
             //---- label9 ----
             label9.setText("Total payment (Tooman) =");
-            label9.setFont(label9.getFont().deriveFont(label9.getFont().getSize() + 3f));
+            label9.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label9.setForeground(Color.white);
 
             //---- buttonsubmit ----
             buttonsubmit.setText("Submit");
@@ -226,15 +262,18 @@ public class PassengersForm extends JFrame {
 
             //---- radioButton_iran ----
             radioButton_iran.setText("Iranian");
+            radioButton_iran.setFont(radioButton_iran.getFont().deriveFont(radioButton_iran.getFont().getSize() - 2f));
             radioButton_iran.addActionListener(e -> radioButton_iranActionPerformed());
 
             //---- radioButton_foreigner ----
             radioButton_foreigner.setText("Foreigner");
+            radioButton_foreigner.setFont(radioButton_foreigner.getFont().deriveFont(radioButton_foreigner.getFont().getSize() - 2f));
             radioButton_foreigner.addActionListener(e -> radioButton_foreignerActionPerformed());
 
             //---- label10 ----
             label10.setText("VIP/NORMAL =");
-            label10.setFont(label10.getFont().deriveFont(label10.getFont().getSize() + 2f));
+            label10.setFont(new Font("Noteworthy", Font.PLAIN, 20));
+            label10.setForeground(Color.white);
 
             //---- radioButton_vip ----
             radioButton_vip.setText("vip");
@@ -253,12 +292,13 @@ public class PassengersForm extends JFrame {
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(buttonsubmit, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(11, 11, 11)
+                        .addComponent(buttonsubmit, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(button_edit, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(button_delete)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(button_delete, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 301, Short.MAX_VALUE))
                     .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -271,38 +311,33 @@ public class PassengersForm extends JFrame {
                                     .addComponent(label6, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(label_totalpay)
-                                .addGap(195, 195, 195))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(radioButton_vip, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioButton_normal)
-                                .addGap(27, 27, 27))
+                                .addGap(216, 216, 216))
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addComponent(label5)
                                     .addComponent(label3, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label4, GroupLayout.PREFERRED_SIZE, 212, GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(panel1Layout.createParallelGroup()
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panel1Layout.createSequentialGroup()
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-                                        .addGroup(panel1Layout.createParallelGroup()
-                                            .addComponent(textField_fullname, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(comboBox_numberofpassengers, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                                .addComponent(textField_durationstay, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                                .addComponent(textField_phonenumber, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                                .addComponent(textField_codemeli, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                                .addComponent(textField_firstpay, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))))
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addGap(84, 84, 84)
-                                        .addComponent(radioButton_iran, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(radioButton_foreigner)))))
-                        .addGap(23, 23, 23)
-                        .addComponent(button_fullpayment)
+                                        .addComponent(radioButton_vip, GroupLayout.PREFERRED_SIZE, 73, GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radioButton_normal))
+                                    .addComponent(textField_durationstay)
+                                    .addComponent(textField_firstpay)
+                                    .addComponent(textField_fullname)
+                                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                        .addComponent(radioButton_iran, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(radioButton_foreigner))
+                                    .addComponent(textField_phonenumber, GroupLayout.Alignment.TRAILING)
+                                    .addComponent(textField_codemeli, GroupLayout.Alignment.TRAILING)))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(0, 414, Short.MAX_VALUE)
+                                .addComponent(comboBox_numberofpassengers, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14)
+                        .addComponent(button_fullpayment, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
             );
             panel1Layout.setVerticalGroup(
@@ -310,21 +345,21 @@ public class PassengersForm extends JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(textField_fullname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textField_fullname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(radioButton_foreigner)
                             .addComponent(label3, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radioButton_foreigner)
                             .addComponent(radioButton_iran))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(textField_codemeli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label4, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label4, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textField_codemeli, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(textField_phonenumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label5, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label5, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textField_phonenumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label6, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
@@ -332,47 +367,42 @@ public class PassengersForm extends JFrame {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup()
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(radioButton_vip)
-                                .addContainerGap(241, Short.MAX_VALUE))
+                                .addComponent(label10)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addGroup(panel1Layout.createParallelGroup()
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(label10)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(radioButton_normal)))
-                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(label7, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(textField_durationstay, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24))
-                                    .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(button_fullpayment)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(label8, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textField_firstpay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(radioButton_normal)
+                                    .addComponent(radioButton_vip))))
+                        .addGap(5, 5, 5)
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(label7, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(panel1Layout.createSequentialGroup()
                                 .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(label9, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label_totalpay))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                                .addGroup(panel1Layout.createParallelGroup()
-                                    .addComponent(buttonsubmit)
-                                    .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(button_edit)
-                                        .addComponent(button_delete)))
-                                .addGap(31, 31, 31))))
+                                    .addComponent(button_fullpayment)
+                                    .addComponent(textField_durationstay, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15)))
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(label8, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textField_firstpay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(label9, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_totalpay))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonsubmit)
+                            .addComponent(button_edit)
+                            .addComponent(button_delete))
+                        .addGap(31, 31, 31))
             );
         }
 
         //======== panel2 ========
         {
-            panel2.setBackground(new Color(153, 0, 0));
+            panel2.setBackground(new Color(72, 38, 72, 211));
 
             //---- label1 ----
             label1.setText("Client Managment");
@@ -385,13 +415,18 @@ public class PassengersForm extends JFrame {
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(label1, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(560, Short.MAX_VALUE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                        .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
             );
             panel2Layout.setVerticalGroup(
                 panel2Layout.createParallelGroup()
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addContainerGap(45, Short.MAX_VALUE)
-                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(panel2Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addComponent(label1, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 22, Short.MAX_VALUE))
             );
         }
 
@@ -399,10 +434,11 @@ public class PassengersForm extends JFrame {
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .addComponent(panel2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
@@ -412,7 +448,7 @@ public class PassengersForm extends JFrame {
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(23, Short.MAX_VALUE))
+                    .addContainerGap(12, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -448,5 +484,6 @@ public class PassengersForm extends JFrame {
     private JComboBox comboBox_numberofpassengers;
     private JPanel panel2;
     private JLabel label1;
+    private JLabel label_image;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

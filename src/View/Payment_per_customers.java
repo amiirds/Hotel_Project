@@ -4,13 +4,11 @@
 
 package View;
 
-import java.util.*;
+
 import javax.swing.border.*;
 import Model.Entity.Passengers_Entity;
 import Model.Repository.Passengers_Repo;
-
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
@@ -22,6 +20,8 @@ import javax.swing.GroupLayout;
 public class Payment_per_customers extends JFrame {
     public Payment_per_customers() throws Exception {
         initComponents();
+        ImageIcon imageIcon = new ImageIcon("src/invoice.png");
+        label_image.setIcon(imageIcon);
     }
 
     private void button1ActionPerformed() {
@@ -48,6 +48,7 @@ public class Payment_per_customers extends JFrame {
         // Generated using JFormDesigner Evaluation license - unknown
         panel1 = new JPanel();
         label1 = new JLabel();
+        label_image = new JLabel();
         panel2 = new JPanel();
         scrollPane1 = new JScrollPane();
         list1 = new JList(ids);
@@ -55,33 +56,37 @@ public class Payment_per_customers extends JFrame {
 
         //======== this ========
         setTitle("Welcome");
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         var contentPane = getContentPane();
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(153, 0, 0));
+            panel1.setBackground(new Color(72, 38, 72, 211));
             panel1.setBorder(null);
-            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-            javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax
-            . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-            .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-            . Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans.
-            PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
-            equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
+            new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
+            , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+            , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 )
+            , java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+            ) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
+            ; }} );
 
             //---- label1 ----
             label1.setText("Payment for Each Client");
-            label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 5f));
-            label1.setForeground(Color.black);
+            label1.setFont(new Font("Noteworthy", Font.BOLD, 20));
+            label1.setForeground(Color.white);
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addContainerGap(184, Short.MAX_VALUE)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addComponent(label1, GroupLayout.PREFERRED_SIZE, 239, GroupLayout.PREFERRED_SIZE)
-                        .addGap(170, 170, 170))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                        .addComponent(label_image, GroupLayout.PREFERRED_SIZE, 62, GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -89,19 +94,23 @@ public class Payment_per_customers extends JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(label1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label_image, GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                        .addContainerGap())
             );
         }
 
         //======== panel2 ========
         {
-            panel2.setBackground(Color.darkGray);
+            panel2.setBackground(new Color(255, 153, 153));
 
             //======== scrollPane1 ========
             {
 
                 //---- list1 ----
                 list1.setFont(list1.getFont().deriveFont(list1.getFont().getStyle() | Font.BOLD, list1.getFont().getSize() + 3f));
-                list1.setBackground(Color.darkGray);
+                list1.setBackground(new Color(255, 153, 153));
                 list1.setForeground(Color.white);
                 list1.setBorder(new TitledBorder("List of payment"));
                 scrollPane1.setViewportView(list1);
@@ -132,7 +141,7 @@ public class Payment_per_customers extends JFrame {
                         .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 386, GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(button1)
-                        .addContainerGap(10, Short.MAX_VALUE))
+                        .addContainerGap(20, Short.MAX_VALUE))
             );
         }
 
@@ -140,19 +149,21 @@ public class Payment_per_customers extends JFrame {
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .addComponent(panel1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(12, 12, 12))
+                    .addContainerGap())
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -163,6 +174,7 @@ public class Payment_per_customers extends JFrame {
     // Generated using JFormDesigner Evaluation license - unknown
     private JPanel panel1;
     private JLabel label1;
+    private JLabel label_image;
     private JPanel panel2;
     private JScrollPane scrollPane1;
     private JList list1;

@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Repository.Passengers_Repo;
+
 import Model.Service.Passengers_service;
 
 public class Hotel_income {

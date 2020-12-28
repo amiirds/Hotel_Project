@@ -4,52 +4,82 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp label_time:::p:81:p, space :p:57:p, comp label_image:::p:149:p, space ::110:x}, comp button_submit::t::397:x, seq l {par l {comp label2:::p::p, comp label3::l:p::p}, space :p:35:p, par l:::p {comp textField_username:::::x, comp passwordField1:::p:106:p}, space :0:60:x}}}}"
-			"$verticalGroup": "par l {seq l {space :::p, par l {comp label_time:::p:28:p, comp label_image:::p:64:p}, space ::26:x, par t {comp label2:::p::p, comp textField_username:::p::p}, space :p:42:p, par b {comp label3::b:p::p, comp passwordField1::b:p::p}, space :p:53:p, comp button_submit:::p:68:p, space :::p}}"
+			"$horizontalGroup": "par l {seq l {comp panel1:::p::p, space :::p, comp panel2:::::x}}"
+			"$verticalGroup": "par l {comp panel1:::::x, comp panel2::l:::x}"
 		} ) {
 			name: "this"
-			"background": new java.awt.Color( 204, 51, 0, 255 )
+			"background": new java.awt.Color( 0, 102, 102, 255 )
 			"title": "Login"
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label_image"
-				"background": new java.awt.Color( 255, 0, 0, 255 )
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 3, false )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {comp label_time:::p:107:p, space :0:135:x}, seq l {space :p:17:p, comp label_login:::p:207:p, space ::18:x}}"
+				"$verticalGroup": "par l {seq l {comp label_time:::p:34:p, space :p:69:p, comp label_login:::p:215:p, space ::58:x}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 72, 38, 72, 211 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_time"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 3, false )
+					"foreground": new javax.swing.plaf.ColorUIResource( 255, 255, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_login"
+				} )
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"text": "USERNAME(Name) ="
-				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
-				"background": new java.awt.Color( 0, 0, 0, 255 )
-				"foreground": sfield java.awt.Color black
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label3"
-				"text": "PASSWORD(Meli code) ="
-				"font": #SwingDerivedFont0
-				"foreground": &Color0 new java.awt.Color( 0, 0, 0, 255 )
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField_username"
-				"foreground": #Color0
-				"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
-			} )
-			add( new FormComponent( "javax.swing.JPasswordField" ) {
-				name: "passwordField1"
-				"foreground": #Color0
-				"font": #SwingDerivedFont1
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_submit"
-				"text": "submit"
-				"background": sfield java.awt.Color darkGray
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_submitActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label_time"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :p:20:p, par l {seq t {comp button1:::p:108:p, space :p:34:p, comp button_submit:::p:108:p, space :p:57:p}, seq t {par l {seq l {comp label_pass:::p:53:p, space s:::p, comp label3:::p::p}, seq l {comp label_person:::p:53:p, space s:::p, comp label2:::p::p}}, space :p:27:p, par l {comp textField_username:::p:106:p, comp passwordField1:::p:106:p}, space :17:31:x}, seq t {comp label_image:::p:156:p, space :p:71:p}}}}"
+				"$verticalGroup": "par l {seq t {space :p:15:p, comp label_image:::p:80:p, space ::29:x, par l {seq t {par b {comp label2::b:p::p, comp textField_username::b:p::p}, space :p:45:p, par b {comp label3::b:p::p, comp passwordField1::b:p::p}}, seq t {comp label_person:::p:48:p, space s:::p, comp label_pass:::p:48:p}}, space :p:28:p, par b {comp button_submit::b:p:38:p, comp button1::b:p:38:p}, space :p:72:p}}"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 255, 153, 153, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "USERNAME (Name) ="
+					"font": new java.awt.Font( "Noteworthy", 2, 16 )
+					"background": new java.awt.Color( 0, 0, 0, 255 )
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "PASSWORD (Meli code) ="
+					"font": new java.awt.Font( "Noteworthy", 0, 16 )
+					"foreground": &Color0 new java.awt.Color( 0, 0, 0, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_submit"
+					"text": "submit"
+					"background": sfield java.awt.Color red
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_submitActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JPasswordField" ) {
+					name: "passwordField1"
+					"foreground": #Color0
+					"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 3, false )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField_username"
+					"foreground": #Color0
+					"font": #SwingDerivedFont0
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "Cancel"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_cancelActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_image"
+					"background": new java.awt.Color( 255, 0, 0, 255 )
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 3, false )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_person"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label_pass"
+				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 20, 0 )
-			"size": new java.awt.Dimension( 405, 345 )
+			"location": new java.awt.Point( 70, 0 )
+			"size": new java.awt.Dimension( 670, 400 )
 		} )
 	}
 }

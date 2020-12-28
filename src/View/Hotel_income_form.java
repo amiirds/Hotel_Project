@@ -60,28 +60,27 @@ public class Hotel_income_form extends JFrame {
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(153, 0, 0));
-            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
-            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing
-            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
-            Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
-            ) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
-            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName (
-            ) )) throw new RuntimeException( ); }} );
+            panel1.setBackground(new Color(72, 38, 72, 211));
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
+            . EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax
+            . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,
+            12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans
+            . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .
+            getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- label1 ----
             label1.setText("Hotel income");
-            label1.setFont(label1.getFont().deriveFont(label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 4f));
-            label1.setForeground(Color.black);
+            label1.setFont(new Font("Noteworthy", Font.BOLD, 18));
+            label1.setForeground(Color.white);
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(label1)
-                        .addContainerGap(200, Short.MAX_VALUE))
+                    .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap(199, Short.MAX_VALUE)
+                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
+                        .addGap(182, 182, 182))
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -94,11 +93,12 @@ public class Hotel_income_form extends JFrame {
 
         //======== panel2 ========
         {
-            panel2.setBackground(Color.darkGray);
+            panel2.setBackground(new Color(255, 153, 153));
 
             //---- label_income ----
-            label_income.setFont(label_income.getFont().deriveFont(label_income.getFont().getSize() + 4f));
+            label_income.setFont(label_income.getFont().deriveFont(label_income.getFont().getSize() + 5f));
             label_income.setText("   ");
+            label_income.setForeground(Color.white);
 
             //---- button1 ----
             button1.setText("Show Income");
@@ -112,7 +112,7 @@ public class Hotel_income_form extends JFrame {
 
             //---- label2 ----
             label2.setText("Hotel Income =");
-            label2.setFont(label2.getFont().deriveFont(label2.getFont().getStyle() & ~Font.BOLD, label2.getFont().getSize() + 3f));
+            label2.setFont(new Font("Noteworthy", Font.PLAIN, 18));
             label2.setForeground(Color.black);
 
             GroupLayout panel2Layout = new GroupLayout(panel2);
@@ -122,17 +122,18 @@ public class Hotel_income_form extends JFrame {
                     .addGroup(GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(label2, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                         .addComponent(label_income, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
                         .addGroup(panel2Layout.createParallelGroup()
                             .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(button2, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
-                            .addComponent(button1, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(162, Short.MAX_VALUE))
+                                .addGap(171, 171, 171)
+                                .addComponent(button1, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addComponent(button2, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(179, Short.MAX_VALUE))
             );
             panel2Layout.setVerticalGroup(
                 panel2Layout.createParallelGroup()
@@ -145,7 +146,7 @@ public class Hotel_income_form extends JFrame {
                         .addComponent(button1)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(button2)
-                        .addContainerGap(44, Short.MAX_VALUE))
+                        .addContainerGap(50, Short.MAX_VALUE))
             );
         }
 
@@ -154,18 +155,14 @@ public class Hotel_income_form extends JFrame {
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(panel2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(panel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());

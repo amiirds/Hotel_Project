@@ -4,44 +4,57 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {comp button_hote_customer::l:::x, seq {par l {comp button_customer_payment::l:p:551:p, comp button_payment_per_customer::l:p:551:p, comp button_hotel_working_day::l:p:557:p}, space :0:0:x}, comp button_hotel_income::t:::x}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp button_hote_customer:::p:59:p, space :::p, comp button_customer_payment:::p:60:p, space :::p, comp button_payment_per_customer:::p:58:p, space :::p, comp button_hotel_working_day:::p:58:p, space :::p, comp button_hotel_income:::p:54:p, space :::p}}"
+			"$horizontalGroup": "par l {comp panel1::l::553:x}"
+			"$verticalGroup": "par l {comp panel1::l:::x}"
 		} ) {
 			name: "this"
 			"title": "Hotel Income Option Menu"
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_customer_payment"
-				"text": "       Show  Customer payment"
-				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 65536, 3, false )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_customer_paymentActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_payment_per_customer"
-				"text": "    Payments per customer"
-				"font": #SwingDerivedFont0
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_payment_per_customerActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_hotel_working_day"
-				"text": "    Hotel working day"
-				"font": #SwingDerivedFont0
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_working_dayActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_hotel_income"
-				"text": "    Hotel Income "
-				"font": #SwingDerivedFont0
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_incomeActionPerformed", false ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button_hote_customer"
-				"text": "     Hotel customers on hotel working days"
-				"font": #SwingDerivedFont0
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hote_customerActionPerformed", false ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {par l {comp button_hotel_customer:::p:550:p, comp button_customer_payment:::p:551:p, comp button_payment_per_customer:::p:551:p, comp button_hotel_working_day:::p:550:p, comp button_hotel_income:::p:550:p, comp button_return:::p:550:p}, space :0:0:x}}"
+				"$verticalGroup": "par l {seq t {space ::10:x, comp button_hotel_customer:::p:59:p, space :6:6:p, comp button_customer_payment:::p:60:p, space :5:5:p, comp button_payment_per_customer:::p:58:p, space :7:7:p, comp button_hotel_working_day:::p:58:p, space :7:7:p, comp button_hotel_income:::p:54:p, space :6:6:p, comp button_return:::p:60:p, space :::p}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 153, 153, 255, 255 )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_hotel_customer"
+					"text": "     Hotel customers on hotel working days"
+					"font": &Font0 new java.awt.Font( "Noteworthy", 0, 15 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hote_customerActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_customer_payment"
+					"text": "       Show  Customer payment"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_customer_paymentActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_payment_per_customer"
+					"text": "    Payments per customer"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_payment_per_customerActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_hotel_working_day"
+					"text": "    Hotel working day"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_working_dayActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_hotel_income"
+					"text": "    Hotel Income "
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_hotel_incomeActionPerformed", false ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button_return"
+					"text": "Return"
+					"font": #Font0
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button_returnActionPerformed", false ) )
+				} )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 30, 25 )
-			"size": new java.awt.Dimension( 555, 355 )
+			"size": new java.awt.Dimension( 555, 420 )
 		} )
 	}
 }

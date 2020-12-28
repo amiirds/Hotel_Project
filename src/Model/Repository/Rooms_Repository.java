@@ -1,6 +1,8 @@
 package Model.Repository;
 
 
+
+import Model.Entity.Passengers_Entity;
 import Model.Entity.Rooms_Entity;
 
 import java.sql.*;
