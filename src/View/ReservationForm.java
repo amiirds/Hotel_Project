@@ -17,7 +17,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Locale;
 
@@ -61,20 +60,30 @@ public class ReservationForm extends JFrame {
     private void buttonsubmitActionPerformed() {
         try {
             Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
-            reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex()+1);
-            reserve_rooms_entity.setFullname(textFieldname.getText());
-            reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            reserve_rooms_entity.setDate_of_reserve(textField_dataofreserv.getText());
-            reserve_rooms_entity.setPhone_number(textField_phonenumber.getText());
-            reserve_rooms_entity.setTime_of_reserve(textField_timeofreserv.getText());
-            reserve_rooms_entity.setFirst_Payment(Long.parseLong(textField_firstpayment.getText()));
-            reserve_rooms_entity.setStaying_time(Long.parseLong(textField_stayingtime.getText()));
-            Reserve_Rooms_Service reserve_rooms_service = new Reserve_Rooms_Service();
-            reserve_rooms_service.insert(reserve_rooms_entity);
-            JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+
+            if (textFieldcodemeli.getText().length() != 10) {
+                JOptionPane.showMessageDialog(null, "Failed to saved \n code meli must be 10 digit", "Error", 2);
+
+            } else {
+                if (textField_phonenumber.getText().length() != 11) {
+                    JOptionPane.showMessageDialog(null, "Failed to saved \n Phone number must be 11 digit", "Error", 2);
+                } else {
+                    reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex() + 1);
+                    reserve_rooms_entity.setFullname(textFieldname.getText());
+                    reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
+                    reserve_rooms_entity.setDate_of_reserve(textField_dataofreserv.getText());
+                    reserve_rooms_entity.setPhone_number(textField_phonenumber.getText());
+                    reserve_rooms_entity.setTime_of_reserve(textField_timeofreserv.getText());
+                    reserve_rooms_entity.setFirst_Payment(Long.parseLong(textField_firstpayment.getText()));
+                    reserve_rooms_entity.setStaying_time(Long.parseLong(textField_stayingtime.getText()));
+                    Reserve_Rooms_Service reserve_rooms_service = new Reserve_Rooms_Service();
+                    reserve_rooms_service.insert(reserve_rooms_entity);
+                    JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                }
+            }
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Failed to saved " ,"Error",2);
+            JOptionPane.showMessageDialog(null,"Failed to saved \n you may reserved before" ,"Error",2);
 
         }
     }
@@ -82,17 +91,26 @@ public class ReservationForm extends JFrame {
     private void button_editActionPerformed() {
         try {
             Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
-            reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex()+1);
-            reserve_rooms_entity.setFullname(textFieldname.getText());
-            reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            reserve_rooms_entity.setDate_of_reserve(textField_dataofreserv.getText());
-            reserve_rooms_entity.setPhone_number(textField_phonenumber.getText());
-            reserve_rooms_entity.setTime_of_reserve(textField_timeofreserv.getText());
-            reserve_rooms_entity.setFirst_Payment(Long.parseLong(textField_firstpayment.getText()));
-            reserve_rooms_entity.setStaying_time(Long.parseLong(textField_stayingtime.getText()));
-            Reserve_Rooms_Service reserve_rooms_service = new Reserve_Rooms_Service();
-            reserve_rooms_service.update(reserve_rooms_entity);
-            JOptionPane.showMessageDialog(null, "Successfully edit", "Success", 1);
+
+            if (textFieldcodemeli.getText().length() != 10) {
+                JOptionPane.showMessageDialog(null, "Failed to edit \n code meli must be 10 digit", "Error", 2);
+            } else {
+                if (textField_phonenumber.getText().length() != 11) {
+                    JOptionPane.showMessageDialog(null, "Failed to edit \n you may reserved before \n Phone number must be 11 digit", "Error", 2);
+                } else {
+                    reserve_rooms_entity.setRoom_number(comboBox_roomnumber.getSelectedIndex() + 1);
+                    reserve_rooms_entity.setFullname(textFieldname.getText());
+                    reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
+                    reserve_rooms_entity.setDate_of_reserve(textField_dataofreserv.getText());
+                    reserve_rooms_entity.setPhone_number(textField_phonenumber.getText());
+                    reserve_rooms_entity.setTime_of_reserve(textField_timeofreserv.getText());
+                    reserve_rooms_entity.setFirst_Payment(Long.parseLong(textField_firstpayment.getText()));
+                    reserve_rooms_entity.setStaying_time(Long.parseLong(textField_stayingtime.getText()));
+                    Reserve_Rooms_Service reserve_rooms_service = new Reserve_Rooms_Service();
+                    reserve_rooms_service.update(reserve_rooms_entity);
+                    JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                }
+            }
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Failed to edit ","Error",2);
@@ -101,25 +119,36 @@ public class ReservationForm extends JFrame {
     }
 
     private void button_deleteActionPerformed() {
-        Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
-        if (reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("")) {
-            JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
-        } else {
-            reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            Reserve_Rooms_Service reserve_rooms_service = null;
             try {
-                reserve_rooms_service = new Reserve_Rooms_Service();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                reserve_rooms_service.delete(reserve_rooms_entity);
-                JOptionPane.showMessageDialog(null, "Successfully Delete ", "Success", 1);
-
-            } catch (Exception e) {
+                Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
+                if (reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("") || textFieldcodemeli.getText().equals(null)) {
+                    JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
+                }
+                else {
+                    reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
+                    Reserve_Rooms_Service reserve_rooms_service = null;
+                    try {
+                        reserve_rooms_service = new Reserve_Rooms_Service();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        reserve_rooms_service = new Reserve_Rooms_Service();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    reserve_rooms_service.delete(reserve_rooms_entity);
+                    JOptionPane.showMessageDialog(null, "Successfully Delete ", "Success", 1);
+                }
+        }
+            catch (Exception e)
+            {
+                Reserve_Rooms_Entity reserve_rooms_entity = new Reserve_Rooms_Entity();
+                if (reserve_rooms_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("") || textFieldcodemeli.getText().equals(null)) {
+                    JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
+                }
                 JOptionPane.showMessageDialog(null, "Failed to Delete ", "Error", 2);
             }
-        }
     }
     Rooms_Repository roomsRepository = new Rooms_Repository();
     Object[] number = roomsRepository.select().toArray();
@@ -167,14 +196,12 @@ public class ReservationForm extends JFrame {
         //======== panel2 ========
         {
             panel2.setBackground(new Color(72, 38, 72, 211));
-            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
-            new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion"
-            , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-            , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 )
-            , java. awt. Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-            ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
-            ; }} );
+            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+            border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER
+            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+            .BOLD ,12 ), java. awt. Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r"
+            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
             panel2.setLayout(new MigLayout(
                 "hidemode 3",
                 // columns
@@ -228,6 +255,7 @@ public class ReservationForm extends JFrame {
                 "[fill]" +
                 "[117,fill]" +
                 "[133,fill]" +
+                "[fill]" +
                 "[104,fill]" +
                 "[fill]" +
                 "[170,fill]",

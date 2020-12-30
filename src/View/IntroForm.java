@@ -129,7 +129,7 @@ public class IntroForm extends JFrame {
             panel2.setBackground(new Color(0, 51, 102));
 
             //---- button_login ----
-            button_login.setText("Login  (Managers & Emplooyes)");
+            button_login.setText("Login  (Managers Only)");
             button_login.setFont(new Font("Noteworthy", Font.BOLD, 16));
             button_login.addActionListener(e -> button_loginActionPerformed());
 

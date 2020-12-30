@@ -36,30 +36,40 @@ public class PassengersForm extends JFrame {
 
     private void buttonsubmitActionPerformed() {
         try {
-            Passengers_Entity passengers_entity = new Passengers_Entity();
-            passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
-            passengers_entity.setFullname(textField_fullname.getText());
-            passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex()+1)));
-            passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
-            if (radioButton_iran.isSelected()){
-                passengers_entity.setNationality(radioButton_iran.getText());
-            }
-            else {
-                passengers_entity.setNationality(radioButton_foreigner.getText());
-            }
-
-            passengers_entity.setPhone_number(Long.parseLong(textField_phonenumber.getText()));
-            passengers_entity.setTotal_payment(Long.parseLong(label_totalpay.getText()));
-            Passengers_service passengers_service = new Passengers_service();
             if (Long.parseLong(textField_firstpay.getText())<20000){
                 JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
             }
             else {
-                passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
-                passengers_service.insert(passengers_entity);
-                JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                if (textField_codemeli.getText().length() != 10) {
+                    JOptionPane.showMessageDialog(null, "meli code or passport number must be 10 digit ", "Error", 2, imageIcon2);
+
+                } else {
+                    if (textField_phonenumber.getText().length() != 11) {
+                        JOptionPane.showMessageDialog(null, "phone number must be 11 digit ", "Error", 2, imageIcon2);
+
+                    } else {
+                        Passengers_Entity passengers_entity = new Passengers_Entity();
+                        passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
+                        passengers_entity.setFullname(textField_fullname.getText());
+                        passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex() + 1)));
+                        passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
+                        if (radioButton_iran.isSelected()) {
+                            passengers_entity.setNationality(radioButton_iran.getText());
+                        } else {
+                            passengers_entity.setNationality(radioButton_foreigner.getText());
+                        }
+                        passengers_entity.setPhone_number(Long.parseLong(textField_phonenumber.getText()));
+                        passengers_entity.setTotal_payment(Long.parseLong(label_totalpay.getText()));
+                        Passengers_service passengers_service = new Passengers_service();
+
+                        passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
+                        passengers_service.insert(passengers_entity);
+                        JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                    }
+                }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             if (Long.parseLong(textField_firstpay.getText())<20000){
                 JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
             }
@@ -70,27 +80,37 @@ public class PassengersForm extends JFrame {
 
     private void button_editActionPerformed() {
         try {
-            Passengers_Entity passengers_entity = new Passengers_Entity();
-            passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
-            passengers_entity.setFullname(textField_fullname.getText());
-            passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex()+1)));
-            passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
-            if (radioButton_iran.isSelected()){
-                passengers_entity.setNationality(radioButton_iran.getText());
-            }
-            else {
-                passengers_entity.setNationality(radioButton_foreigner.getText());
-            }
-            passengers_entity.setPhone_number(Long.parseLong(textField_phonenumber.getText()));
-            passengers_entity.setTotal_payment(Long.parseLong(label_totalpay.getText()));
-            Passengers_service passengers_service = new Passengers_service();
             if (Long.parseLong(textField_firstpay.getText())<20000){
                 JOptionPane.showMessageDialog(null,"Please your first payment upper than 20K ","Error",2,imageIcon2);
             }
             else {
-                passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
-                passengers_service.update(passengers_entity);
-                JOptionPane.showMessageDialog(null, "Successfully edit", "Success", 1);
+                if (textField_codemeli.getText().length() != 10) {
+                    JOptionPane.showMessageDialog(null, "meli code or passport number must be 10 digit ", "Error", 2, imageIcon2);
+
+                } else {
+                    if (textField_phonenumber.getText().length() != 11) {
+                        JOptionPane.showMessageDialog(null, "phone number must be 11 digit ", "Error", 2, imageIcon2);
+
+                    } else {
+                        Passengers_Entity passengers_entity = new Passengers_Entity();
+                        passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
+                        passengers_entity.setFullname(textField_fullname.getText());
+                        passengers_entity.setNumber_of_passengers(Long.parseLong(String.valueOf(comboBox_numberofpassengers.getSelectedIndex() + 1)));
+                        passengers_entity.setDuration_of_stay(Long.parseLong(textField_durationstay.getText()));
+                        if (radioButton_iran.isSelected()) {
+                            passengers_entity.setNationality(radioButton_iran.getText());
+                        } else {
+                            passengers_entity.setNationality(radioButton_foreigner.getText());
+                        }
+                        passengers_entity.setPhone_number(Long.parseLong(textField_phonenumber.getText()));
+                        passengers_entity.setTotal_payment(Long.parseLong(label_totalpay.getText()));
+                        Passengers_service passengers_service = new Passengers_service();
+
+                        passengers_entity.setFirst_Payment(Long.parseLong(textField_firstpay.getText()));
+                        passengers_service.update(passengers_entity);
+                        JOptionPane.showMessageDialog(null, "Successfully edit", "Success", 1);
+                    }
+                }
             }
         }
         catch (Exception e) {
@@ -102,26 +122,22 @@ public class PassengersForm extends JFrame {
         }
     }
 
-    private void button_deleteActionPerformed() {
-        Passengers_Entity passengers_entity = new Passengers_Entity();
-        if (passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText())).equals("")) {
-            JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
-        } else {
-            passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
-            Passengers_service passengers_service = null;
-            try {
-                passengers_service = new Passengers_service();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                passengers_service.delete(passengers_entity);
-                JOptionPane.showMessageDialog(null, "Successfully Delete ", "Success", 1);
+    private void button_deleteActionPerformed() throws Exception {
 
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Failed to Delete " + e.getStackTrace(), "Error", 2);
+            try {
+                Passengers_Entity passengers_entity = new Passengers_Entity();
+                if (passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText())).equals("")) {
+                    JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
+                }
+                else {
+                    passengers_entity.setMeli_code(Long.parseLong(textField_codemeli.getText()));
+                    Passengers_service passengers_service = new Passengers_service();
+                    passengers_service.delete(passengers_entity);
+                    JOptionPane.showMessageDialog(null, "Successfully Delete ", "Success", 1);
+                }
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed to Delete " , "Error", 2);
             }
-        }
     }
 
     private void button_fullpaymentActionPerformed() {
@@ -187,6 +203,7 @@ public class PassengersForm extends JFrame {
         radioButton_normal = new JRadioButton();
         button_fullpayment = new JButton();
         comboBox_numberofpassengers = new JComboBox(number);
+        label112 = new JLabel();
         panel2 = new JPanel();
         label1 = new JLabel();
         label_image = new JLabel();
@@ -198,13 +215,12 @@ public class PassengersForm extends JFrame {
         {
             panel1.setBackground(new Color(255, 153, 153));
             panel1.setFont(panel1.getFont().deriveFont(panel1.getFont().getSize() + 3f));
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
-            .border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder
-            .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.
-            awt.Font.BOLD,12),java.awt.Color.red),panel1. getBorder()))
-            ;panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-            ){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}})
-            ;
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+            EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing
+            . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
+            java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () ))
+            throw new RuntimeException( ); }} );
 
             //---- label ----
             label.setText("Fullname =");
@@ -258,7 +274,13 @@ public class PassengersForm extends JFrame {
 
             //---- button_delete ----
             button_delete.setText("Delete");
-            button_delete.addActionListener(e -> button_deleteActionPerformed());
+            button_delete.addActionListener(e -> {
+                try {
+                    button_deleteActionPerformed();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            });
 
             //---- radioButton_iran ----
             radioButton_iran.setText("Iranian");
@@ -286,6 +308,11 @@ public class PassengersForm extends JFrame {
             //---- button_fullpayment ----
             button_fullpayment.setText("Show full payment");
             button_fullpayment.addActionListener(e -> button_fullpaymentActionPerformed());
+
+            //---- label112 ----
+            label112.setText("at least 20k");
+            label112.setFont(new Font("Noteworthy", Font.PLAIN, 16));
+            label112.setForeground(Color.black);
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -336,9 +363,15 @@ public class PassengersForm extends JFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(0, 414, Short.MAX_VALUE)
                                 .addComponent(comboBox_numberofpassengers, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)))
-                        .addGap(14, 14, 14)
-                        .addComponent(button_fullpayment, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGroup(panel1Layout.createParallelGroup()
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(button_fullpayment, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label112)
+                                .addGap(19, 19, 19))))
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -374,24 +407,29 @@ public class PassengersForm extends JFrame {
                                 .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                     .addComponent(radioButton_normal)
                                     .addComponent(radioButton_vip))))
-                        .addGap(5, 5, 5)
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addGroup(panel1Layout.createParallelGroup()
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(label7, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addComponent(label7, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                            .addComponent(button_fullpayment)
+                                            .addComponent(textField_durationstay, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                                        .addGap(15, 15, 15)))
                                 .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(button_fullpayment)
-                                    .addComponent(textField_durationstay, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
-                                .addGap(15, 15, 15)))
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(label8, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField_firstpay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(label8, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textField_firstpay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addComponent(label112)
+                                .addGap(2, 2, 2)))
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label9, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label_totalpay))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonsubmit)
                             .addComponent(button_edit)
@@ -448,7 +486,7 @@ public class PassengersForm extends JFrame {
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(12, Short.MAX_VALUE))
+                    .addContainerGap(14, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -482,6 +520,7 @@ public class PassengersForm extends JFrame {
     private JRadioButton radioButton_normal;
     private JButton button_fullpayment;
     private JComboBox comboBox_numberofpassengers;
+    private JLabel label112;
     private JPanel panel2;
     private JLabel label1;
     private JLabel label_image;

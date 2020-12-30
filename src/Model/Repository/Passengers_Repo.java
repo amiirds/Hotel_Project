@@ -13,7 +13,7 @@ public class Passengers_Repo implements AutoCloseable {
     public Passengers_Repo() throws Exception {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xepdb1", "hotel", "amir123");
-        preparedStatement = connection.prepareStatement("CREATE table passengers (meli_code number , fullname varchar(40), Number_of_passengers number , duration_of_stay number , phone_number number , First_Payment number , total_Payment number,nationality varchar(40) )");
+        preparedStatement = connection.prepareStatement("CREATE table passengers (meli_code number unique , fullname varchar(40), Number_of_passengers number , duration_of_stay number , phone_number number unique , First_Payment number , total_Payment number,nationality varchar(40))");
         connection.setAutoCommit(false);
 //        preparedStatement.executeUpdate();
     }

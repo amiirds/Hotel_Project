@@ -37,8 +37,9 @@ public class user_repo implements AutoCloseable {
 //        preparedStatement.executeUpdate(); // uncomment for creat user for test
     }
     public void delete(User_Entity user_entity) throws Exception {
-        preparedStatement = connection.prepareStatement("delete from users where username = ?");
-        preparedStatement.setString(1,user_entity.getUsername());
+        preparedStatement = connection.prepareStatement("delete from users where password = ?");
+        preparedStatement.setString(1,user_entity.getPassword());
+        preparedStatement.executeUpdate();
     }
 
     public List<User_Entity> select () throws Exception {

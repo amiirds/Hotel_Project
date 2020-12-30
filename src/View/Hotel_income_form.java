@@ -35,7 +35,7 @@ public class Hotel_income_form extends JFrame {
         try {
             ImageIcon img = new ImageIcon("src/ds.png");
             JOptionPane.showMessageDialog(null,"After you click Ok window will be closed in 2 second","Announcement",2,img);
-            Thread.sleep(1500);
+            Thread.sleep(1000);
             setVisible(false);
         } catch (InterruptedException e) {
             e.printStackTrace();

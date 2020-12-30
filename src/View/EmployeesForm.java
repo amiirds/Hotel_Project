@@ -28,26 +28,35 @@ public class EmployeesForm extends JFrame {
     }
     private void buttonsubmitActionPerformed(){
         try {
-            Employee_Entity employee_entity = new Employee_Entity();
-            employee_entity.setAddress(textField_address.getText());
-            employee_entity.setSalary(Long.parseLong(textField_salary.getText()));
-            employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            employee_entity.setFullname(textFieldname.getText());
-            employee_entity.setUsername(textFieldname.getText());
-            employee_entity.setPassword(textFieldcodemeli.getText());
-            employee_entity.setJob_Title(Objects.requireNonNull(comboBox_jobtitle.getSelectedItem()).toString());
-            employee_entity.setPhone_number(textFieldnumber.getText());
-            Employee_Service employee_service = new Employee_Service();
-            employee_service.save(employee_entity);
-            if (employee_entity.getJob_Title().equals("Hotel General Manager")|| employee_entity.getJob_Title().equals("Events Manager")) {
-                User_Entity user_entity = new User_Entity();
-                user_entity.setUsername(textFieldname.getText());
-                user_entity.setPassword(textFieldcodemeli.getText());
-                user_entity.setJob_title(comboBox_jobtitle.getSelectedItem().toString());
-                User_Service user_service = new User_Service();
-                user_service.save(user_entity);
+            if (textFieldcodemeli.getText().length() != 10) {
+                JOptionPane.showMessageDialog(null, "meli code or passport number must be 10 digit ", "Error", 2);
             }
-            JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+            else {
+                if (textFieldnumber.getText().length() != 11) {
+                    JOptionPane.showMessageDialog(null, "phone number must be 11 digit ", "Error", 2);
+                } else {
+                    Employee_Entity employee_entity = new Employee_Entity();
+                    employee_entity.setAddress(textField_address.getText());
+                    employee_entity.setSalary(Long.parseLong(textField_salary.getText()));
+                    employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
+                    employee_entity.setFullname(textFieldname.getText());
+                    employee_entity.setUsername(textFieldname.getText());
+                    employee_entity.setPassword(textFieldcodemeli.getText());
+                    employee_entity.setJob_Title(Objects.requireNonNull(comboBox_jobtitle.getSelectedItem()).toString());
+                    employee_entity.setPhone_number(textFieldnumber.getText());
+                    Employee_Service employee_service = new Employee_Service();
+                    employee_service.save(employee_entity);
+                    if (employee_entity.getJob_Title().equals("Hotel General Manager")) {
+                        User_Entity user_entity = new User_Entity();
+                        user_entity.setUsername(textFieldname.getText());
+                        user_entity.setPassword(textFieldcodemeli.getText());
+                        user_entity.setJob_title(comboBox_jobtitle.getSelectedItem().toString());
+                        User_Service user_service = new User_Service();
+                        user_service.save(user_entity);
+                    }
+                    JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                }
+            }
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Failed to saved ","Error",2);
@@ -56,47 +65,61 @@ public class EmployeesForm extends JFrame {
 
     private void button_editActionPerformed() {
         try {
-            Employee_Entity employee_entity = new Employee_Entity();
-            employee_entity.setAddress(textField_address.getText());
-            employee_entity.setSalary(Long.parseLong(textField_salary.getText()));
-            employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            employee_entity.setFullname(textFieldname.getText());
-            employee_entity.setUsername(textFieldname.getText());
-            employee_entity.setPassword(textFieldcodemeli.getText());
-            employee_entity.setJob_Title(Objects.requireNonNull(comboBox_jobtitle.getSelectedItem()).toString());
-            employee_entity.setPhone_number(textFieldnumber.getText());
-            Employee_Service employee_service = new Employee_Service();
-            employee_service.update(employee_entity);
-            JOptionPane.showMessageDialog(null, "Successfully edit ", "Success", 1);
+            if (textFieldcodemeli.getText().length() != 10) {
+                JOptionPane.showMessageDialog(null, "meli code or passport number must be 10 digit ", "Error", 2);
+            }
+            else {
+                if (textFieldnumber.getText().length() != 11) {
+                    JOptionPane.showMessageDialog(null, "phone number must be 11 digit ", "Error", 2);
+                } else {
+                    Employee_Entity employee_entity = new Employee_Entity();
+                    employee_entity.setAddress(textField_address.getText());
+                    employee_entity.setSalary(Long.parseLong(textField_salary.getText()));
+                    employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
+                    employee_entity.setFullname(textFieldname.getText());
+                    employee_entity.setUsername(textFieldname.getText());
+                    employee_entity.setPassword(textFieldcodemeli.getText());
+                    employee_entity.setJob_Title(Objects.requireNonNull(comboBox_jobtitle.getSelectedItem()).toString());
+                    employee_entity.setPhone_number(textFieldnumber.getText());
+                    Employee_Service employee_service = new Employee_Service();
+                    employee_service.update(employee_entity);
+                    JOptionPane.showMessageDialog(null, "Successfully submit", "Success", 1);
+                }
+            }
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Failed to edit " + e.getStackTrace(),"Error",2);
+            JOptionPane.showMessageDialog(null,"Failed to edit " ,"Error",2);
         }
     }
 
 
     private void button_deleteActionPerformed() {
-        Employee_Entity employee_entity = new Employee_Entity();
-        if (employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("")) {
-            JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
-        } else {
-            employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
-            Employee_Service employee_service = new Employee_Service();
             try {
-                employee_service.delete(employee_entity);
+                Employee_Entity employee_entity = new Employee_Entity();
+                User_Entity user_entity = new User_Entity();
+                if (employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("")) {
+                    JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
+                }
+                else {
+                    employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText()));
+                    user_entity.setPassword(textFieldcodemeli.getText());
+                    Employee_Service employee_service = new Employee_Service();
+                    User_Service user_service = new User_Service();
+                    employee_service.delete(employee_entity);
+                    Thread.sleep(1000);
+                    user_service.delete(user_entity);
                 JOptionPane.showMessageDialog(null, "Successfully Delete ", "Success", 1);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Failed to Delete ", "Error", 2);
             }
         }
+            catch (Exception e) {
+                Employee_Entity employee_entity = new Employee_Entity();
+                if (employee_entity.setMeli_code(Long.parseLong(textFieldcodemeli.getText())).equals("")) {
+                    JOptionPane.showMessageDialog(null, "Meli code can't be empty  ", "Error", 2);
+                }
+                JOptionPane.showMessageDialog(null, "Failed to Delete " , "Error", 2);
+            }
     }
 
-    private void button1ActionPerformed() {
-        // TODO add your code here
-    }
-
-    
     String[] job = {null,"Hotel General Manager","Events Manager","Cafe Manager","Chef","Kitchen Manager","Director of Housekeeping","Maid","Housekeeper","Valet","Barista"};
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -271,7 +294,6 @@ public class EmployeesForm extends JFrame {
             //---- button_edit ----
             button_edit.setText("Edit");
             button_edit.addActionListener(e -> {
-			button1ActionPerformed();
 			button_editActionPerformed();
 		});
             panel1.add(button_edit, "cell 1 6 1 2");

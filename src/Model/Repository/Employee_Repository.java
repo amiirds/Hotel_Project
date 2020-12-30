@@ -19,7 +19,7 @@ public class Employee_Repository implements AutoCloseable{
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xepdb1", "hotel", "amir123");
         connection.setAutoCommit(false);
-        preparedStatement = connection.prepareStatement("CREATE table employees_Information (meli_code number ,username varchar(40), password varchar(40), fullname varchar(40), Job_Title varchar(40) , Salary number , phone_number varchar (90), Address varchar(80 ))");
+        preparedStatement = connection.prepareStatement("CREATE table employees_Information (meli_code number unique ,username varchar(40), password varchar(40), fullname varchar(40), Job_Title varchar(40) , Salary number , phone_number varchar (90) unique, Address varchar(80 ))");
 //        preparedStatement.executeUpdate(); // sakht jadval
         select();
     }

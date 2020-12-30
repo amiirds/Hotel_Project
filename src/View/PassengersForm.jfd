@@ -5,12 +5,12 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq t {space :::p, par t {comp panel2:::::x, comp panel1:::::x}, space :::p}}"
-			"$verticalGroup": "par l {seq t {space :::p, comp panel2:::p::p, space :::p, comp panel1:::p::p, space ::12:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp panel2:::p::p, space :::p, comp panel1:::p::p, space ::14:x}}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {space :p:11:p, comp buttonsubmit:::p:159:p, space s:::p, comp button_edit:::p:135:p, space s:::p, comp button_delete:::p:114:p, space :0:301:x}, seq t {space :::p, par t {seq t {par l {comp label10::l:p:116:p, comp label9:::p:212:p, comp label7:::p:190:p, comp label8:::p::p, comp label6::l:p:190:p}, space :::x, comp label_totalpay:::p::p, space :p:216:p}, seq t {par l {comp label5:::p::p, comp label3::l:p:101:p, comp label::l:p:101:p, comp label4:::p:212:p}, space ::202:x, par l:::p {seq {comp radioButton_vip:::p:73:p, space s:::p, comp radioButton_normal:::p::p}, comp textField_durationstay::l:::x, comp textField_firstpay::l:::x, comp textField_fullname::l:::x, seq t {comp radioButton_iran:::::x, space :::p, comp radioButton_foreigner:::p::p}, comp textField_phonenumber::t:::x, comp textField_codemeli::t:::x}}, seq {space :0:414:x, comp comboBox_numberofpassengers:::p:168:p}}, space :p:14:p, comp button_fullpayment:::p:148:p, space :::p}}"
-				"$verticalGroup": "par l {seq l {space :::p, par b {comp label::b:p:43:p, comp textField_fullname::b:p::p}, space :::p, par b {comp label3::b:p:43:p, comp radioButton_foreigner::b:p::p, comp radioButton_iran::b:p::p}, space :::p, par b {comp label4::b:p:43:p, comp textField_codemeli::b:p::p}, space :::p, par b {comp label5::b:p:43:p, comp textField_phonenumber::b:p::p}, space :p:7:p, par b {comp label6::b:p:43:p, comp comboBox_numberofpassengers::b:p::p}, space u:::p, par l {seq {comp label10:::p::p, space :0:0:x}, seq l {space :0:0:x, par b {comp radioButton_normal::b:p::p, comp radioButton_vip::b:p::p}}}, space :p:5:p, par t {seq t {comp label7:::p:43:p, space :::p}, seq {par b {comp button_fullpayment::b:p::p, comp textField_durationstay::b:p:30:p}, space :p:15:p}}, par b {comp label8::b:p:43:p, comp textField_firstpay::b:p::p}, space :::p, par b {comp label9::b:p:43:p, comp label_totalpay::b:p::p}, space ::33:x, par b {comp buttonsubmit::b:p::p, comp button_edit::b:p::p, comp button_delete::b:p::p}, space :p:31:p}}"
+				"$horizontalGroup": "par l {seq {space :p:11:p, comp buttonsubmit:::p:159:p, space s:::p, comp button_edit:::p:135:p, space s:::p, comp button_delete:::p:114:p, space :0:301:x}, seq t {space :::p, par t {seq t {par l {comp label10::l:p:116:p, comp label9:::p:212:p, comp label7:::p:190:p, comp label8:::p::p, comp label6::l:p:190:p}, space :::x, comp label_totalpay:::p::p, space :p:216:p}, seq t {par l {comp label5:::p::p, comp label3::l:p:101:p, comp label::l:p:101:p, comp label4:::p:212:p}, space ::202:x, par l:::p {seq {comp radioButton_vip:::p:73:p, space s:::p, comp radioButton_normal:::p::p}, comp textField_durationstay::l:::x, comp textField_firstpay::l:::x, comp textField_fullname::l:::x, seq t {comp radioButton_iran:::::x, space :::p, comp radioButton_foreigner:::p::p}, comp textField_phonenumber::t:::x, comp textField_codemeli::t:::x}}, seq {space :0:414:x, comp comboBox_numberofpassengers:::p:168:p}}, par l {seq {space :p:14:p, comp button_fullpayment:::p:148:p, space :::p}, seq t {space :::p, comp label112:::p::p, space :p:19:p}}}}"
+				"$verticalGroup": "par l {seq l {space :::p, par b {comp label::b:p:43:p, comp textField_fullname::b:p::p}, space :::p, par b {comp label3::b:p:43:p, comp radioButton_foreigner::b:p::p, comp radioButton_iran::b:p::p}, space :::p, par b {comp label4::b:p:43:p, comp textField_codemeli::b:p::p}, space :::p, par b {comp label5::b:p:43:p, comp textField_phonenumber::b:p::p}, space :p:7:p, par b {comp label6::b:p:43:p, comp comboBox_numberofpassengers::b:p::p}, space u:::p, par l {seq {comp label10:::p::p, space :0:0:x}, seq l {space :0:0:x, par b {comp radioButton_normal::b:p::p, comp radioButton_vip::b:p::p}}}, par l {seq {space :p:5:p, par t {seq t {comp label7:::p:43:p, space :::p}, seq {par b {comp button_fullpayment::b:p::p, comp textField_durationstay::b:p:30:p}, space :p:15:p}}, par b {comp label8::b:p:43:p, comp textField_firstpay::b:p::p}, space :::p}, seq t {comp label112:::p::p, space :p:2:p}}, par b {comp label9::b:p:43:p, comp label_totalpay::b:p::p}, space ::31:x, par b {comp buttonsubmit::b:p::p, comp button_edit::b:p::p, comp button_delete::b:p::p}, space :p:31:p}}"
 			} ) {
 				name: "panel1"
 				"background": new java.awt.Color( 255, 153, 153, 255 )
@@ -132,6 +132,12 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JComboBox" ) {
 					name: "comboBox_numberofpassengers"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label112"
+					"text": "at least 20k"
+					"font": new java.awt.Font( "Noteworthy", 0, 16 )
+					"foreground": sfield java.awt.Color black
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
