@@ -223,7 +223,7 @@ public class PassengersForm extends JFrame {
             throw new RuntimeException( ); }} );
 
             //---- label ----
-            label.setText("Fullname =");
+            label.setText("Full Name =");
             label.setFont(new Font("Noteworthy", Font.PLAIN, 20));
             label.setForeground(Color.white);
 
