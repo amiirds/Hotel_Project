@@ -24,7 +24,6 @@ public class Hotel_customer_workingday_form extends JFrame {
 
     List<String> list = new ArrayList();
     String[] names;
-    DefaultTableModel defaultTableModel;
     DefaultListModel listModel;
     private void button_showActionPerformed() {
         listModel = new DefaultListModel();
